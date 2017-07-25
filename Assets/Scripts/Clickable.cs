@@ -5,32 +5,44 @@ using UnityEngine;
 public class Clickable : MonoBehaviour {
 
 	private Vector3 savedCamPos;
+	public int id = -2;
 
 	//Temp mouse control
+
+	// Zoom in
 	void OnMouseDown(){
 
-		savedCamPos = Camera.main.transform.position;
+		if(GameState.state == GameState.State.OPEN){
+			savedCamPos = Camera.main.transform.position;
 
-		CancelInvoke ();
-		InvokeRepeating("MoveCamIn", 0, 0.01f);
+			CancelInvoke ();
+			InvokeRepeating("MoveCamIn", 0, 0.01f);
 
+			GameState.state = GameState.State.ZOOMED;
+			GameState.lookingAt = id;
+		}
 	}
 
-	void OnMouseUp(){
-		CancelInvoke ();
-		InvokeRepeating("MoveCamOut", 0, 0.01f);
+	void Update(){
+		// Zoom out
+		if (Input.GetKeyDown ("b") && GameState.state == GameState.State.ZOOMED && GameState.lookingAt == id) {
+			CancelInvoke ();
+			InvokeRepeating("MoveCamOut", 0, 0.01f);
+		}
 	}
 
 	void MoveCamIn(){
+
+		Vector3 target = transform.TransformPoint (new Vector3 (0, 0, 3));
+
 		Camera.main.transform.position = Vector3.Lerp (	Camera.main.transform.position,
-														transform.TransformPoint(new Vector3(0, 0, 2)),
+														target,
 														Time.deltaTime);
 
-		if (CheckCloseEnough (Camera.main.transform.position, transform.TransformPoint (new Vector3 (0, 0, 2)))) {
+		// Stops lerp
+		if (CheckCloseEnough (Camera.main.transform.position, target)) {
 			CancelInvoke ();
 		}
-
-		//print ("moving in");
 	}
 
 	void MoveCamOut(){
@@ -38,8 +50,12 @@ public class Clickable : MonoBehaviour {
 														savedCamPos,
 														Time.deltaTime);
 
+		// Stops lerp
 		if (CheckCloseEnough (Camera.main.transform.position, savedCamPos)) {
 			CancelInvoke ();
+
+			GameState.state = GameState.State.OPEN;
+			GameState.lookingAt = -1;
 		}
 	}
 

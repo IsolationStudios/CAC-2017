@@ -48,14 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Clickable.cs" />
      <Compile Include="Assets\Scripts\FacingScript.cs" />
+     <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\TEMP_CamControl.cs" />
-     <Compile Include="Assets\_old\Scripts\CharTracker.cs" />
-     <Compile Include="Assets\_old\Scripts\GameManager.cs" />
-     <Compile Include="Assets\_old\Scripts\GameState.cs" />
-     <Compile Include="Assets\_old\Scripts\NPCDialogue.cs" />
-     <Compile Include="Assets\_old\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\_old\Scripts\PlayerTalk.cs" />
-     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -77,10 +71,6 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{B4800645-1158-27FE-0E89-54B4E762F627}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
