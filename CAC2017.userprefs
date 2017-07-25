@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerTalk.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Clickable.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerTalk.cs" Line="36" Column="32" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="24" Column="3" />
-      <File FileName="Assets\Scripts\GameState.cs" Line="35" Column="17" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="30" Column="2" />
+      <File FileName="Assets\Scripts\TEMP_CamControl.cs" Line="9" Column="83" />
+      <File FileName="Assets\Scripts\FacingScript.cs" Line="8" Column="2" />
+      <File FileName="Assets\Scripts\Clickable.cs" Line="9" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
