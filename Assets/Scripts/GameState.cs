@@ -10,7 +10,10 @@ public static class GameState {
 
 	public enum State{
 		OPEN,
-		ZOOMED
+		ZOOMING,
+		ZOOM_DONE,
+		TALKING,
+		DONE_TALKING
 	};
 
 	public static State state = State.OPEN;

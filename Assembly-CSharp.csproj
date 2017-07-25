@@ -46,9 +46,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Clickable.cs" />
-     <Compile Include="Assets\Scripts\FacingScript.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
+     <Compile Include="Assets\Scripts\Interactive\Clickable.cs" />
+     <Compile Include="Assets\Scripts\Interactive\DialogueBox.cs" />
+     <Compile Include="Assets\Scripts\Interactive\FacingScript.cs" />
+     <Compile Include="Assets\Scripts\Interactive\NPC.cs" />
      <Compile Include="Assets\Scripts\TEMP_CamControl.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
