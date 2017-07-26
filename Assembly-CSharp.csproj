@@ -46,11 +46,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ExtraMath.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\Interactive\Clickable.cs" />
      <Compile Include="Assets\Scripts\Interactive\DialogueBox.cs" />
      <Compile Include="Assets\Scripts\Interactive\FacingScript.cs" />
+     <Compile Include="Assets\Scripts\Interactive\Floor.cs" />
      <Compile Include="Assets\Scripts\Interactive\NPC.cs" />
      <Compile Include="Assets\Scripts\TEMP_CamControl.cs" />
  <Reference Include="UnityEngine.UI">

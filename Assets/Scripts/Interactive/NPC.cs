@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Clickable with dialogue
+ */
+
 namespace Interactive{
 	public class NPC : Clickable {
 

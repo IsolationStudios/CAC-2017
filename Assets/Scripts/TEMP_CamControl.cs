@@ -8,7 +8,7 @@ public class TEMP_CamControl : MonoBehaviour {
 	void Update () {
 
 		if (GameState.state == GameState.State.OPEN) {
-			transform.RotateAround (Vector3.zero, Vector3.up, Input.GetAxis ("Horizontal"));
+			transform.Rotate(new Vector3(0, Input.GetAxis ("Horizontal"), 0));
 		}
 	}
 }

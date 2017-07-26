@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Zoomable object
+ */
+
 namespace Interactive{
 	public class Clickable : MonoBehaviour {
 
 		private Vector3 savedCamPos;
 		public int id = -2;
+		public static float threshold = 0.001f;
+		public static float speed = 5;
 
 		//Temp mouse control
 
@@ -39,10 +45,10 @@ namespace Interactive{
 
 			Camera.main.transform.position = Vector3.Lerp (	Camera.main.transform.position,
 															target,
-															Time.deltaTime);
+															Time.deltaTime * speed);
 
 			// Stops lerp
-			if (CheckCloseEnough (Camera.main.transform.position, target)) {
+			if (ExtraMath.CheckCloseEnough (Camera.main.transform.position, target, threshold)) {
 				CancelInvoke ();
 
 				GameState.state = GameState.State.ZOOM_DONE;
@@ -53,22 +59,15 @@ namespace Interactive{
 		protected void MoveCamOut(){
 			Camera.main.transform.position = Vector3.Lerp (	Camera.main.transform.position,
 															savedCamPos,
-															Time.deltaTime);
+															Time.deltaTime * speed);
 
 			// Stops lerp
-			if (CheckCloseEnough (Camera.main.transform.position, savedCamPos)) {
+			if (ExtraMath.CheckCloseEnough (Camera.main.transform.position, savedCamPos, threshold)) {
 				CancelInvoke ();
 
 				GameState.state = GameState.State.OPEN;
 				GameState.lookingAt = -1;
 			}
-		}
-
-		static bool CheckCloseEnough(Vector3 a, Vector3 b){
-			return (Mathf.Abs (a.x - b.x) < 0.01 &&
-			    Mathf.Abs (a.y - b.y) < 0.01 &&
-			    Mathf.Abs (a.z - b.z) < 0.01);
-				
 		}
 	}
 }

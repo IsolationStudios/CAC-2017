@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Manages game
+ */
+
 public class GameManager : MonoBehaviour {
 
 	public GameState.State s;
@@ -14,6 +18,8 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		// TEMP: debug
 		s = GameState.state;
 		id = GameState.lookingAt;
 	}

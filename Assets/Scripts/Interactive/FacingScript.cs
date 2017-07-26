@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Faces object toward MainCam in y direction
+ */
+
 namespace Interactive{
 	public class FacingScript : MonoBehaviour {
 

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Dialogue box; activated upon spawn
+ */
+
 namespace Interactive{
 	public class DialogueBox : MonoBehaviour {
 
@@ -15,7 +19,7 @@ namespace Interactive{
 
 		void Start(){
 			dText = (transform.Find ("Text")).transform.GetComponent<Text>();
-
+			dText.text = "";
 		}
 
 		void Update(){
