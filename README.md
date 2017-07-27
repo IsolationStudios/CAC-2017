@@ -1,4 +1,5 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/isolationstudios/cac-2017/badge/master)](https://www.codefactor.io/repository/github/isolationstudios/cac-2017/overview/master)
+[![Build Status](https://travis-ci.org/IsolationStudios/CAC-2017.svg?branch=master)](https://travis-ci.org/IsolationStudios/CAC-2017)
 # CAC-2017: Title Pending
 
 A point and click adventure in the making involving tedium and color.
