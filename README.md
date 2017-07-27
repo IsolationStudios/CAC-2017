@@ -16,15 +16,15 @@ Open in Unity project wizard
 
 # Added
 
-  - movement and turning
+  - movement and turning + checking
   - dialogue
   - game states
-  - viewing
+  - sfx
 
 # TODO
-
+  - character portraits?
+  - extra dialogue options
   - inventory
-  - sound
   - mobile support (buttons) + input manager
   - story progression
   - saving

@@ -5,7 +5,6 @@ using UnityEngine;
 public class TEMP_CamControl : MonoBehaviour {
 	int counter;
 
-	// Update is called once per frame
 	void Update () {
 		if (GameState.state == GameState.State.OPEN) {
 			if (Input.GetKeyDown ("d")) {

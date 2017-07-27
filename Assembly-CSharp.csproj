@@ -49,13 +49,14 @@
      <Compile Include="Assets\Scripts\ExtraMath.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
+     <Compile Include="Assets\Scripts\GameUI\DialogueBox.cs" />
+     <Compile Include="Assets\Scripts\GameUI\SelectDisp.cs" />
      <Compile Include="Assets\Scripts\Interactive\Clickable.cs" />
-     <Compile Include="Assets\Scripts\Interactive\DialogueBox.cs" />
      <Compile Include="Assets\Scripts\Interactive\FacingScript.cs" />
      <Compile Include="Assets\Scripts\Interactive\Floor.cs" />
      <Compile Include="Assets\Scripts\Interactive\NPC.cs" />
-     <Compile Include="Assets\Scripts\SelectDisp.cs" />
      <Compile Include="Assets\Scripts\TEMP_CamControl.cs" />
+     <None Include="Assets\Sound\SFX\UI Sound Pack 1\Notes.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

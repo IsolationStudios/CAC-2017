@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GameUI;
 
 /*
  * Zoomable object
@@ -16,6 +17,7 @@ namespace Interactive{
 
 		private Vector3 savedCamPos;
 		private SelectDisp selectDisp;
+		private AudioSource talkSound;
 
 		//Temp mouse control
 		// Zoom in
@@ -29,6 +31,9 @@ namespace Interactive{
 				//Hide selection display
 				selectDisp.HideSelectDisp();
 
+				//Play sound
+				talkSound.Play();
+
 				GameState.state = GameState.State.ZOOMING;
 			}
 		}
@@ -38,16 +43,14 @@ namespace Interactive{
 			}
 		}
 		void OnMouseExit(){
-
-			//print (selectDispText.text + " " + name);
-
 			if (GameState.state == GameState.State.OPEN) {
 				selectDisp.HideSelectDisp ();
 			}
 		}
 
-		void Start(){
+		protected virtual void Start(){
 			selectDisp = GameObject.Find ("SelectDisp").GetComponent<SelectDisp>();
+			talkSound = transform.GetComponent<AudioSource> ();
 		}
 
 		protected virtual void Update(){

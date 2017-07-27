@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameUI;
 
 /*
  * Clickable with dialogue
@@ -10,6 +11,8 @@ namespace Interactive{
 	public class NPC : Clickable {
 		public string[] dialogueArray;
 		public GameObject dBox;
+
+		private AudioSource selectSound;
 
 		protected override void Update(){
 			base.Update ();
@@ -26,6 +29,7 @@ namespace Interactive{
 		}
 
 		void Talk(){
+
 			var d = Instantiate (dBox);
 			d.transform.SetParent(GameObject.Find ("Canvas").transform);
 			d.GetComponent<DialogueBox> ().dArr = dialogueArray;
