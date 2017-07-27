@@ -1,0 +1,10 @@
+language: objective-c
+osx_image: xcode61
+rvm:
+- 2.3
+install:
+- ./Scripts/install.sh
+script:
+- ./Scripts/build.sh
+notifications:
+  email: false
