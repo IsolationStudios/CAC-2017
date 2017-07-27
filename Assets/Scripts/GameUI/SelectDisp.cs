@@ -11,11 +11,11 @@ namespace GameUI{
 	public class SelectDisp : MonoBehaviour {
 		public int speed = 3;
 		private Text selectDispText;
-		private AudioSource selectSound;
+
+		public AudioClip selectSound;
 
 		void Start(){
 			selectDispText = transform.Find ("Text").GetComponent<Text> ();
-			selectSound = transform.GetComponent<AudioSource> ();
 		}
 
 		void Update(){
@@ -32,7 +32,7 @@ namespace GameUI{
 		}
 		public void ShowSelectDisp(string name){
 			selectDispText.text = name;
-			selectSound.Play ();
+			SoundManager.instance.PlaySFX (selectSound);
 
 			CancelInvoke ();
 			InvokeRepeating("MoveDown", 0, 0.01f);

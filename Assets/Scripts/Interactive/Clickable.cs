@@ -15,9 +15,12 @@ namespace Interactive{
 		public static float threshold = 0.001f;
 		public static float speed = 5;
 
+		public GameObject exclamation;
+
 		private Vector3 savedCamPos;
 		private SelectDisp selectDisp;
-		private AudioSource talkSound;
+
+		public AudioClip talkSound;
 
 		//Temp mouse control
 		// Zoom in
@@ -32,7 +35,10 @@ namespace Interactive{
 				selectDisp.HideSelectDisp();
 
 				//Play sound
-				talkSound.Play();
+				SoundManager.instance.PlaySFX(talkSound);
+
+				//Show stars
+				Instantiate (exclamation, this.transform.position + Vector3.up, Quaternion.identity);
 
 				GameState.state = GameState.State.ZOOMING;
 			}
@@ -50,7 +56,6 @@ namespace Interactive{
 
 		protected virtual void Start(){
 			selectDisp = GameObject.Find ("SelectDisp").GetComponent<SelectDisp>();
-			talkSound = transform.GetComponent<AudioSource> ();
 		}
 
 		protected virtual void Update(){

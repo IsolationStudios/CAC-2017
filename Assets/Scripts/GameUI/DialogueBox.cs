@@ -18,15 +18,14 @@ namespace GameUI{
 		private int dCounter = 0;
 
 		private Text dText;
-		private AudioSource dLetSound;
-		private AudioSource dLineSound;
+
+		public AudioClip dLetSound;
+		public AudioClip dLineSound;
+		public AudioClip exitSound;
 
 		void Start(){
 			dText = (transform.Find ("Text")).transform.GetComponent<Text>();
 			dText.text = "";
-
-			dLetSound = transform.GetComponents<AudioSource> () [0];
-			dLineSound = transform.GetComponents<AudioSource> () [1];
 		}
 
 		void Update() {
@@ -41,7 +40,9 @@ namespace GameUI{
 					dText.text = currD.Substring (0, dLetIndex+1);
 					dLetIndex++;
 
-					dLetSound.Play();
+					//Prevent cutoff
+					if(dCounter > 10)
+						SoundManager.instance.PlaySFX(dLetSound);
 				}
 				//Move line
 				else if(Input.GetMouseButtonDown(0)) {
@@ -50,7 +51,7 @@ namespace GameUI{
 					dArrIndex++;
 
 					if(dArrIndex < dArr.Length){
-						dLineSound.Play();
+						SoundManager.instance.PlaySFX(dLineSound);
 					}
 				}
 
@@ -58,6 +59,8 @@ namespace GameUI{
 			}
 			//Kill when done
 			else {
+				SoundManager.instance.PlaySFX(exitSound);
+
 				GameState.state = GameState.State.DONE_TALKING;
 				Destroy (gameObject);
 			}
