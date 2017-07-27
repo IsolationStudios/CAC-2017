@@ -26,4 +26,4 @@ install "MacEditorTargetInstaller/UnitySetup-Windows-Support-for-Editor-$VERSION
 install "MacEditorTargetInstaller/UnitySetup-Mac-Support-for-Editor-$VERSION.pkg"
 install "MacEditorTargetInstaller/UnitySetup-Linux-Support-for-Editor-$VERSION.pkg"
 
-http://netstorage.unity3d.com/unity/472613c02cf7/MacEditorInstaller/Unity-2017.1.0f3.pkg?_ga=2.112470284.900733464.1501121406-1384945295.1501121406/
+#http://netstorage.unity3d.com/unity/472613c02cf7/MacEditorInstaller/Unity-2017.1.0f3.pkg?_ga=2.112470284.900733464.1501121406-1384945295.1501121406/
