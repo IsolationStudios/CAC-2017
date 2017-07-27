@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
  * Zoomable object
@@ -8,10 +9,13 @@ using UnityEngine;
 
 namespace Interactive{
 	public class Clickable : MonoBehaviour {
-		private Vector3 savedCamPos;
 		public int id = -2;
+		public string name;
 		public static float threshold = 0.001f;
 		public static float speed = 5;
+
+		private Vector3 savedCamPos;
+		private SelectDisp selectDisp;
 
 		//Temp mouse control
 		// Zoom in
@@ -22,8 +26,28 @@ namespace Interactive{
 				CancelInvoke ();
 				InvokeRepeating("MoveCamIn", 0, 0.01f);
 
+				//Hide selection display
+				selectDisp.HideSelectDisp();
+
 				GameState.state = GameState.State.ZOOMING;
 			}
+		}
+		void OnMouseEnter(){
+			if (GameState.state == GameState.State.OPEN) {
+				selectDisp.ShowSelectDisp (name);
+			}
+		}
+		void OnMouseExit(){
+
+			//print (selectDispText.text + " " + name);
+
+			if (GameState.state == GameState.State.OPEN) {
+				selectDisp.HideSelectDisp ();
+			}
+		}
+
+		void Start(){
+			selectDisp = GameObject.Find ("SelectDisp").GetComponent<SelectDisp>();
 		}
 
 		protected virtual void Update(){

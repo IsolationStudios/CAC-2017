@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Interactive\FacingScript.cs" />
      <Compile Include="Assets\Scripts\Interactive\Floor.cs" />
      <Compile Include="Assets\Scripts\Interactive\NPC.cs" />
+     <Compile Include="Assets\Scripts\SelectDisp.cs" />
      <Compile Include="Assets\Scripts\TEMP_CamControl.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
