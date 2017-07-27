@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace Interactive{
 	public class Floor : MonoBehaviour {
-
 		static int speed = 5;
 		static float threshold = 0.1f;
 

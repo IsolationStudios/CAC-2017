@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace Interactive{
 	public class NPC : Clickable {
-
 		public string[] dialogueArray;
 		public GameObject dBox;
 

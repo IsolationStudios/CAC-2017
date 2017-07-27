@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 namespace Interactive{
 	public class DialogueBox : MonoBehaviour {
-
 		public string[] dArr;
 
 		private string currD;
@@ -25,12 +24,10 @@ namespace Interactive{
 		void Update(){
 			// Go thru array of dialogue
 			if (dArrIndex < dArr.Length) {
-
 				//Load line
 				if (dLetIndex == 0) {
 					currD = dArr [dArrIndex];
 				}
-
 				// Move dialogue
 				if (dLetIndex < currD.Length) {
 					dText.text = currD.Substring (0, dLetIndex+1);
@@ -41,7 +38,6 @@ namespace Interactive{
 					dLetIndex = 0;
 					dArrIndex++;
 				}
-
 			}
 			//Kill when done
 			else {

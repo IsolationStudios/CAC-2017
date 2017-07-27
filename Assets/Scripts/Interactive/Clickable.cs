@@ -8,17 +8,14 @@ using UnityEngine;
 
 namespace Interactive{
 	public class Clickable : MonoBehaviour {
-
 		private Vector3 savedCamPos;
 		public int id = -2;
 		public static float threshold = 0.001f;
 		public static float speed = 5;
 
 		//Temp mouse control
-
 		// Zoom in
 		void OnMouseDown(){
-
 			if(GameState.state == GameState.State.OPEN){
 				savedCamPos = Camera.main.transform.position;
 
@@ -40,13 +37,11 @@ namespace Interactive{
 		}
 
 		protected void MoveCamIn(){
-
 			Vector3 target = transform.TransformPoint (new Vector3 (0, 0, 3));
-
 			Camera.main.transform.position = Vector3.Lerp (	Camera.main.transform.position,
 															target,
 															Time.deltaTime * speed);
-
+			
 			// Stops lerp
 			if (ExtraMath.CheckCloseEnough (Camera.main.transform.position, target, threshold)) {
 				CancelInvoke ();

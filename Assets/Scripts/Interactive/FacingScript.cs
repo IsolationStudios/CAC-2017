@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace Interactive{
 	public class FacingScript : MonoBehaviour {
-
 		public GameObject player;
 
 		// Update is called once per frame

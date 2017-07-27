@@ -7,7 +7,6 @@ using UnityEngine;
  */
 
 public static class ExtraMath {
-	
 	public static bool CheckCloseEnough(Vector3 a, Vector3 b, float threshold){
 		return (Mathf.Abs (a.x - b.x) < threshold &&
 			Mathf.Abs (a.y - b.y) < threshold &&

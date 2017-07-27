@@ -7,7 +7,6 @@ using UnityEngine;
  */
 
 public class GameManager : MonoBehaviour {
-
 	public GameState.State s;
 	public int id;
 

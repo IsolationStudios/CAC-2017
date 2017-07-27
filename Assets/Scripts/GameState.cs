@@ -7,7 +7,6 @@ using UnityEngine;
  */
 
 public static class GameState {
-
 	public enum State{
 		OPEN,
 		ZOOMING,
@@ -15,9 +14,7 @@ public static class GameState {
 		TALKING,
 		DONE_TALKING,
 		MOVING
-	};
-
+	}
 	public static State state = State.OPEN;
 	public static int lookingAt = -1;
-
 }
