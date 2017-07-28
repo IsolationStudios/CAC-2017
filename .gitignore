@@ -30,3 +30,5 @@ obj/
 ehthumbs.db
 Thumbs.db
 
+# Ignore scripts for now
+# Scripts/

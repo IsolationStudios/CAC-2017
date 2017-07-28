@@ -13,7 +13,7 @@ namespace GameUI{
 		private int speed = 3;
 
 		private string currD;
-		private int dArrIndex = 0;
+		protected int dArrIndex = 0;
 		private int dLetIndex = 0;
 		private int dCounter = 0;
 
@@ -31,39 +31,47 @@ namespace GameUI{
 		void Update() {
 			// Go thru array of dialogue
 			if (dArrIndex < dArr.Length) {
-				//Load line
-				if (dLetIndex == 0) {
-					currD = dArr [dArrIndex];
-				}
-				// Move dialogue
-				if (dLetIndex < currD.Length && dCounter % speed == 0) {
-					dText.text = currD.Substring (0, dLetIndex+1);
-					dLetIndex++;
-
-					//Prevent cutoff
-					if(dCounter > 10)
-						SoundManager.instance.PlaySFX(dLetSound);
-				}
-				//Move line
-				else if(Input.GetMouseButtonDown(0)) {
-					dLetIndex = 0;
-					dCounter = 0;
-					dArrIndex++;
-
-					if(dArrIndex < dArr.Length){
-						SoundManager.instance.PlaySFX(dLineSound);
-					}
-				}
-
-				dCounter++;
+				MoveText ();
 			}
 			//Kill when done
 			else {
-				SoundManager.instance.PlaySFX(exitSound);
-
-				GameState.state = GameState.State.DONE_TALKING;
-				Destroy (gameObject);
+				Kill();
 			}
+		}
+
+		protected void MoveText(){
+			//Load line
+			if (dLetIndex == 0) {
+				currD = dArr [dArrIndex];
+			}
+			// Move dialogue
+			if (dLetIndex < currD.Length && dCounter % speed == 0) {
+				dText.text = currD.Substring (0, dLetIndex+1);
+				dLetIndex++;
+
+				//Prevent cutoff
+				if(dCounter > 10)
+					SoundManager.instance.PlaySFX(dLetSound);
+			}
+			//Move line
+			else if(Input.GetMouseButtonDown(0)) {
+				dLetIndex = 0;
+				dCounter = 0;
+				dArrIndex++;
+
+				if(dArrIndex < dArr.Length){
+					SoundManager.instance.PlaySFX(dLineSound);
+				}
+			}
+
+			dCounter++;
+		}
+
+		protected virtual void Kill(){
+			SoundManager.instance.PlaySFX(exitSound);
+
+			GameState.state = GameState.State.DONE_TALKING;
+			Destroy (gameObject);
 		}
 	}
 }

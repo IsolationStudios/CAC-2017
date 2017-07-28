@@ -28,6 +28,16 @@ namespace Interactive{
 			var d = Instantiate (dBox);
 			d.transform.SetParent(GameObject.Find ("Canvas").transform);
 			d.GetComponent<DialogueBox> ().dArr = dialogueArray;
+
+			//Check for choices
+			Transform choiceParent = transform.Find ("Choices");
+			if (choiceParent) {
+				GameObject[] choices = new GameObject[choiceParent.transform.childCount];
+				for(int i=0; i < choices.Length; i++){
+					choices [i] = choiceParent.transform.GetChild (i).gameObject;
+				}
+				d.GetComponent<ChoiceDialogueBox> ().choices = choices;
+			}
 		}
 	}
 }
