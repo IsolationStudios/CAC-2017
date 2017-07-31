@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 /*
  * Dialogue box; activated upon spawn
@@ -44,10 +45,20 @@ namespace GameUI{
 			if (dLetIndex == 0) {
 				currD = dArr [dArrIndex];
 			}
+
 			// Move dialogue
 			if (dLetIndex < currD.Length && dCounter % speed == 0) {
 				dText.text = currD.Substring (0, dLetIndex+1);
 				dLetIndex++;
+
+				//Slow punctuation
+				Regex reg = new Regex(@"\.|\?|\,|\!");
+				if (reg.IsMatch(currD [dLetIndex-1].ToString()) && speed == 3) {
+					dCounter = 1;
+					speed = 20;
+				} else if(!reg.IsMatch(currD [dLetIndex-1].ToString())){
+					speed = 3;
+				}
 
 				//Prevent cutoff
 				if(dCounter > 10)
@@ -58,6 +69,7 @@ namespace GameUI{
 				dLetIndex = 0;
 				dCounter = 0;
 				dArrIndex++;
+				speed = 3;
 
 				if(dArrIndex < dArr.Length){
 					SoundManager.instance.PlaySFX(dLineSound);

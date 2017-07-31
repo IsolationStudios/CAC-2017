@@ -5,6 +5,7 @@ using GameUI;
 
 /*
  * Clickable with dialogue
+ * Branching choices added with a Choice empty object containing ChoiceBoxes
  */
 
 namespace Interactive{
