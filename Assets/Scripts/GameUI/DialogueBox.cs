@@ -15,10 +15,12 @@ namespace GameUI{
 
 		private string currD;
 		protected int dArrIndex = 0;
-		private int dLetIndex = 0;
+		private int dLetIndex = 3;
 		private int dCounter = 0;
 
 		private Text dText;
+
+		private CharPortrait charPort;
 
 		public AudioClip dLetSound;
 		public AudioClip dLineSound;
@@ -27,6 +29,8 @@ namespace GameUI{
 		void Start(){
 			dText = (transform.Find ("Text")).transform.GetComponent<Text>();
 			dText.text = "";
+
+			charPort = GameObject.Find ("CharPortrait").GetComponent<CharPortrait>();
 		}
 
 		void Update() {
@@ -42,13 +46,15 @@ namespace GameUI{
 
 		protected void MoveText(){
 			//Load line
-			if (dLetIndex == 0) {
+			if (dLetIndex == 3) {
 				currD = dArr [dArrIndex];
+				charPort.ShowDisp();
+				charPort.SetPortrait (int.Parse(dArr [dArrIndex].Substring(0, 2)));
 			}
 
 			// Move dialogue
-			if (dLetIndex < currD.Length && dCounter % speed == 0) {
-				dText.text = currD.Substring (0, dLetIndex+1);
+			if (dLetIndex + 3 < currD.Length && dCounter % speed == 0) {
+				dText.text = currD.Substring (3, dLetIndex+1);
 				dLetIndex++;
 
 				//Slow punctuation
@@ -66,7 +72,7 @@ namespace GameUI{
 			}
 			//Move line
 			else if(Input.GetMouseButtonDown(0)) {
-				dLetIndex = 0;
+				dLetIndex = 3;
 				dCounter = 0;
 				dArrIndex++;
 				speed = 3;
@@ -81,6 +87,8 @@ namespace GameUI{
 
 		protected virtual void Kill(){
 			SoundManager.instance.PlaySFX(exitSound);
+
+			charPort.HideDisp();
 
 			GameState.state = GameState.State.DONE_TALKING;
 			Destroy (gameObject);
