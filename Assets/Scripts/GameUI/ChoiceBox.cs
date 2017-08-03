@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Selectable box that spawns dialogue
+ */
+
 namespace GameUI{
 	public class ChoiceBox : MonoBehaviour {
 
