@@ -69,7 +69,7 @@ namespace Interactive{
 		}
 
 		protected void MoveCamIn(){
-			Vector3 target = transform.TransformPoint (new Vector3 (0, 0, 3));
+			Vector3 target = transform.Find("LookTarget").transform.TransformPoint (new Vector3 (0, 0, 3));
 			Camera.main.transform.position = Vector3.Lerp (	Camera.main.transform.position,
 															target,
 															Time.deltaTime * speed);
