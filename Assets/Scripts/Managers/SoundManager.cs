@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour {
 		else
 			Destroy (gameObject);
 	}
-	
+
 	public void PlaySFX(AudioClip c){
 		sfxPlayer.clip = c;
 		sfxPlayer.Play ();

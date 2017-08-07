@@ -19,11 +19,11 @@ Open in Unity project wizard
   - movement and turning + checking
   - dialogue
   - game states
-  - sfx
+  - sfx + sound manager
+  - character portraits
+  - extra dialogue options
 
 # TODO
-  - character portraits?
-  - extra dialogue options
   - inventory
   - mobile support (buttons) + input manager
   - story progression

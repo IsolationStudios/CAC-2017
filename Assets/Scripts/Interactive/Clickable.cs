@@ -12,7 +12,7 @@ namespace Interactive{
 	public class Clickable : MonoBehaviour {
 		public int id = -2;
 		public string name;
-		public static float threshold = 0.001f;
+		public static float threshold = 0.1f;
 		public static float speed = 5;
 
 		public GameObject exclamation;
