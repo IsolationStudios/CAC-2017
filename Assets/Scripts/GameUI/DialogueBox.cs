@@ -12,6 +12,8 @@ namespace GameUI{
 	public class DialogueBox : MonoBehaviour {
 		public string[] dArr;
 		private int speed = 3;
+		private const int NORM_SPEED = 5;
+		private const int SLOW_SPEED = 20;
 
 		private int startIndex = 3;
 		private string currD;
@@ -61,11 +63,11 @@ namespace GameUI{
 
 				//Slow punctuation
 				Regex reg = new Regex(@"\.|\?|\,|\!");
-				if (reg.IsMatch(currD [dLetIndex-1].ToString()) && speed == 3) {
+				if (reg.IsMatch(currD [dLetIndex-1].ToString()) && speed == NORM_SPEED) {
 					dCounter = 1;
-					speed = 20;
+					speed = SLOW_SPEED;
 				} else if(!reg.IsMatch(currD [dLetIndex-1].ToString())){
-					speed = 3;
+					speed = NORM_SPEED;
 				}
 
 				//Prevent cutoff
@@ -77,7 +79,7 @@ namespace GameUI{
 				dLetIndex = startIndex;
 				dCounter = 0;
 				dArrIndex++;
-				speed = 3;
+				speed = NORM_SPEED;
 
 				if(dArrIndex < dArr.Length){
 					SoundManager.instance.PlaySFX(dLineSound);
