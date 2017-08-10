@@ -19,7 +19,7 @@ namespace GameUI{
 			for (int i=0; i < choices.Length; i++) {
 				var b = Instantiate (choices[i]);
 				b.transform.SetParent(GameObject.Find ("Canvas").transform, false);
-				b.transform.position = new Vector3 (b.transform.position.x + 100, i*100 + 80, 0);
+				b.transform.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (-100, 100 + 100*i);
 				b.tag = "ChoiceBox";
 			}
 			Destroy (gameObject);
