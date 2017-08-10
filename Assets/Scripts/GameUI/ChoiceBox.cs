@@ -16,7 +16,7 @@ namespace GameUI{
 
 			//Play dialogue
 			var d = Instantiate (dBox);
-			d.transform.SetParent(GameObject.Find ("Canvas").transform);
+			d.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 			d.GetComponent<DialogueBox> ().dArr = dialogueArray;
 
 			//Destroy all choice boxes

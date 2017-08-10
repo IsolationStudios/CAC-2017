@@ -27,7 +27,7 @@ namespace Interactive{
 
 		void Talk(){
 			var d = Instantiate (dBox);
-			d.transform.SetParent(GameObject.Find ("Canvas").transform);
+			d.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 			d.GetComponent<DialogueBox> ().dArr = dialogueArray;
 
 			//Check for choices
