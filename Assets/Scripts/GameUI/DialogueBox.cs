@@ -11,9 +11,9 @@ using System.Text.RegularExpressions;
 namespace GameUI{
 	public class DialogueBox : MonoBehaviour {
 		public string[] dArr;
-		private int speed = 3;
-		private const int NORM_SPEED = 5;
-		private const int SLOW_SPEED = 20;
+		private int speed;
+		private int NORM_SPEED;
+		private int SLOW_SPEED;
 
 		private int startIndex = 3;
 		private string currD;
@@ -33,6 +33,16 @@ namespace GameUI{
 			dLetIndex = startIndex;
 			dText = (transform.Find ("Text")).transform.GetComponent<Text>();
 			dText.text = "";
+
+			if (Application.isEditor) {
+				NORM_SPEED = 8;
+				SLOW_SPEED = 40;
+			}
+			else {
+				NORM_SPEED = 2;
+				SLOW_SPEED = 20;
+			}
+			speed = NORM_SPEED;
 
 			charPort = GameObject.Find ("CharPortrait").GetComponent<CharPortrait>();
 		}

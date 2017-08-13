@@ -6,7 +6,7 @@ using UnityEditor.SceneManagement;
 
 public class Editor : MonoBehaviour {
 
-	[MenuItem("Edit/Play-Stop, But From Launch Scene %0")]
+	[MenuItem("Edit/Play Init %0")]
 	public static void PlayFromPreLaunchScene(){
 		if(EditorApplication.isPlaying){
 			EditorApplication.isPlaying = false;

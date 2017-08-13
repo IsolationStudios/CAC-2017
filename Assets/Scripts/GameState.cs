@@ -13,7 +13,8 @@ public static class GameState {
 		ZOOM_DONE,
 		TALKING,
 		DONE_TALKING,
-		MOVING
+		MOVING,
+		PUZZLE
 	}
 	public static State state = State.OPEN;
 	public static int lookingAt = -1;

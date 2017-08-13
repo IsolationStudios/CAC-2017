@@ -32,6 +32,7 @@ namespace Managers {
 
 			if (Input.GetKeyDown ("q")) {
 				GoTo ("comboLock");
+				GameState.state = GameState.State.PUZZLE;
 			}
 			// end debug
 		}
