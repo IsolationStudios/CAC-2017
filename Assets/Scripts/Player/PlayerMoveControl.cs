@@ -18,7 +18,7 @@ namespace Player {
 		void Update () {
 			if (GameState.state == GameState.State.OPEN) {
 				// Moving
-				if (Input.GetKeyDown ("w")) {
+				if (InputManager.instance.GO_FORWARD) {
 					target = transform.position + transform.forward * 10;
 
 					if (!GameManager.instance.CheckInVec(target))
@@ -29,7 +29,7 @@ namespace Player {
 
 					GameState.state = GameState.State.MOVING;
 				}
-				else if (Input.GetKeyDown ("s")) {
+				else if (InputManager.instance.GO_BACKWARD) {
 					target = transform.position - transform.forward * 10;
 
 					if (!GameManager.instance.CheckInVec(target))
@@ -40,7 +40,7 @@ namespace Player {
 
 					GameState.state = GameState.State.MOVING;
 				}
-				else if (Input.GetKeyDown ("a") && Input.GetKey (KeyCode.LeftShift)) {
+				else if (InputManager.instance.GO_LEFT) {
 					target = transform.position - transform.right * 10;
 
 					if (!GameManager.instance.CheckInVec(target))
@@ -51,7 +51,7 @@ namespace Player {
 
 					GameState.state = GameState.State.MOVING;
 				}
-				else if (Input.GetKeyDown ("d") && Input.GetKey (KeyCode.LeftShift)) {
+				else if (InputManager.instance.GO_RIGHT) {
 					target = transform.position + transform.right * 10;
 
 					if (!GameManager.instance.CheckInVec(target))
@@ -64,11 +64,11 @@ namespace Player {
 				}
 
 				// Turning
-				else if (Input.GetKeyDown ("d")) {
+				else if (InputManager.instance.TURN_RIGHT) {
 					GameState.state = GameState.State.MOVING;
 					InvokeRepeating ("TurnRight", 0, 0.01f);
 				}
-				else if (Input.GetKeyDown ("a")) {
+				else if (InputManager.instance.TURN_LEFT) {
 					GameState.state = GameState.State.MOVING;
 					InvokeRepeating ("TurnLeft", 0, 0.01f);
 				}

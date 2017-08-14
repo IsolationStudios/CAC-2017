@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Managers {
 	public class SoundManager : MonoBehaviour {
-		
 		public static SoundManager instance;
 		public AudioSource musicPlayer;
 		public AudioSource sfxPlayer;

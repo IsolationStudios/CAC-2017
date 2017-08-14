@@ -1,0 +1,63 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Managers {
+	public class InputManager : MonoBehaviour {
+		public static InputManager instance;
+
+		public bool GO_FORWARD;
+		public bool GO_BACKWARD;
+		public bool GO_RIGHT;
+		public bool GO_LEFT;
+
+		public bool TURN_RIGHT;
+		public bool TURN_LEFT;
+
+		void Start () {
+			if (instance == null)
+				instance = this;
+			else
+				Destroy (gameObject);
+		}
+
+		void Update(){
+			if (Input.GetKeyDown ("a") && Input.GetKey (KeyCode.LeftShift)) {
+				GO_LEFT = true;
+			} else {
+				GO_LEFT = false;
+			}
+
+			if (Input.GetKeyDown ("d") && Input.GetKey (KeyCode.LeftShift)) {
+				GO_RIGHT = true;
+			} else {
+				GO_RIGHT = false;
+			}
+
+			if (Input.GetKeyDown ("w")) {
+				GO_FORWARD = true;
+			} else {
+				GO_FORWARD = false;
+			}
+
+			if (Input.GetKeyDown ("a")) {
+				TURN_LEFT = true;
+			} else {
+				TURN_LEFT = false;
+			}
+
+			if (Input.GetKeyDown ("s")) {
+				GO_BACKWARD = true;
+			} else {
+				GO_BACKWARD = false;
+			}
+
+			if (Input.GetKeyDown ("d")) {
+				TURN_RIGHT = true;
+			} else {
+				TURN_RIGHT = false;
+			}
+
+		}
+	}
+}
