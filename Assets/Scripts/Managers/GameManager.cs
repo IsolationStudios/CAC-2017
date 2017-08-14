@@ -13,6 +13,10 @@ namespace Managers {
 		public GameState.State s;
 		public int id;
 
+		public ArrayList floorLocs;
+		void Awake(){
+			floorLocs = new ArrayList();
+		}
 		void Start () {
 			if (instance == null)
 				instance = this;
@@ -38,7 +42,18 @@ namespace Managers {
 		}
 
 		public void GoTo(string scene){
+			floorLocs.Clear ();
 			SceneManager.LoadScene (scene);
+		}
+
+		public bool CheckInVec(Vector3 vec){
+
+			foreach (Vector3 v in floorLocs) {
+				if(ExtraMath.CheckCloseEnoughXZ(v, vec, 1f)){
+					return true;
+				}
+			}
+			return false;
 		}
 	}
 }

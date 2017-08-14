@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Managers;
 
 /*
  * Controls player movement on main world
@@ -9,6 +10,10 @@ using UnityEngine;
 namespace Player {
 	public class PlayerMoveControl : MonoBehaviour {
 		int counter;
+
+		int speed = 10;
+		float threshold = 0.1f;
+		Vector3 target;
 
 		void Update () {
 			if (GameState.state == GameState.State.OPEN) {
@@ -20,6 +25,27 @@ namespace Player {
 					GameState.state = GameState.State.MOVING;
 					InvokeRepeating ("TurnLeft", 0, 0.01f);
 				}
+
+				else if (Input.GetKeyDown ("w")) {
+					target = transform.position + transform.forward * 10;
+
+					if (!GameManager.instance.CheckInVec(target))
+						return;
+
+					CancelInvoke ();
+					InvokeRepeating("MoveToFloor", 0, 0.01f);
+
+					GameState.state = GameState.State.MOVING;
+				}
+				/*
+				else if (Input.GetKeyDown ("s")) {
+					target = transform.position - transform.forward * 10;
+					CancelInvoke ();
+					InvokeRepeating("MoveToFloor", 0, 0.01f);
+
+					GameState.state = GameState.State.MOVING;
+				}
+				*/
 			}
 		}
 
@@ -42,6 +68,19 @@ namespace Player {
 			}
 		}
 
+		void MoveToFloor(){
+			Camera.main.transform.position = Vector3.Lerp (	Camera.main.transform.position,
+				target,
+				Time.deltaTime * speed);
+
+			// Stops lerp
+			if (ExtraMath.CheckCloseEnough (Camera.main.transform.position, target, threshold)) {
+				CancelInvoke ();
+
+				GameState.state = GameState.State.OPEN;
+				GameState.lookingAt = -1;
+			}
+		}
 
 	}
 }
