@@ -17,16 +17,8 @@ namespace Player {
 
 		void Update () {
 			if (GameState.state == GameState.State.OPEN) {
-				if (Input.GetKeyDown ("d")) {
-					GameState.state = GameState.State.MOVING;
-					InvokeRepeating ("TurnRight", 0, 0.01f);
-				}
-				else if (Input.GetKeyDown ("a")) {
-					GameState.state = GameState.State.MOVING;
-					InvokeRepeating ("TurnLeft", 0, 0.01f);
-				}
-
-				else if (Input.GetKeyDown ("w")) {
+				// Moving
+				if (Input.GetKeyDown ("w")) {
 					target = transform.position + transform.forward * 10;
 
 					if (!GameManager.instance.CheckInVec(target))
@@ -37,15 +29,49 @@ namespace Player {
 
 					GameState.state = GameState.State.MOVING;
 				}
-				/*
 				else if (Input.GetKeyDown ("s")) {
 					target = transform.position - transform.forward * 10;
+
+					if (!GameManager.instance.CheckInVec(target))
+						return;
+
 					CancelInvoke ();
 					InvokeRepeating("MoveToFloor", 0, 0.01f);
 
 					GameState.state = GameState.State.MOVING;
 				}
-				*/
+				else if (Input.GetKeyDown ("a") && Input.GetKey (KeyCode.LeftShift)) {
+					target = transform.position - transform.right * 10;
+
+					if (!GameManager.instance.CheckInVec(target))
+						return;
+
+					CancelInvoke ();
+					InvokeRepeating("MoveToFloor", 0, 0.01f);
+
+					GameState.state = GameState.State.MOVING;
+				}
+				else if (Input.GetKeyDown ("d") && Input.GetKey (KeyCode.LeftShift)) {
+					target = transform.position + transform.right * 10;
+
+					if (!GameManager.instance.CheckInVec(target))
+						return;
+
+					CancelInvoke ();
+					InvokeRepeating("MoveToFloor", 0, 0.01f);
+
+					GameState.state = GameState.State.MOVING;
+				}
+
+				// Turning
+				else if (Input.GetKeyDown ("d")) {
+					GameState.state = GameState.State.MOVING;
+					InvokeRepeating ("TurnRight", 0, 0.01f);
+				}
+				else if (Input.GetKeyDown ("a")) {
+					GameState.state = GameState.State.MOVING;
+					InvokeRepeating ("TurnLeft", 0, 0.01f);
+				}
 			}
 		}
 

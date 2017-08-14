@@ -13,10 +13,8 @@ namespace Managers {
 		public GameState.State s;
 		public int id;
 
-		public ArrayList floorLocs;
-		void Awake(){
-			floorLocs = new ArrayList();
-		}
+		public ArrayList floorLocs = new ArrayList();
+
 		void Start () {
 			if (instance == null)
 				instance = this;

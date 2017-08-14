@@ -10,8 +10,10 @@ Open in Unity project wizard
 
 # Controls
 
-  - Left(A)/Right(D) to turn
-  - click to examine/move
+  - W/S to move forward/back
+  - A/D to turning
+  -SHIFT-A/D to strafe
+  - click to examine
   - b to exit
 
 # Added
