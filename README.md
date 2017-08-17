@@ -15,6 +15,7 @@ Open in Unity project wizard
   -SHIFT-A/D to strafe
   - click to examine
   - b to exit
+  - Debug: num row
 
 # Added
 

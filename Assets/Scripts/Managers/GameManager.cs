@@ -44,6 +44,10 @@ namespace Managers {
 				GoTo ("normMaze");
 				GameState.state = GameState.State.PUZZLE;
 			}
+			if (Input.GetKeyDown ("4")) {
+				GoTo ("sweeper");
+				GameState.state = GameState.State.PUZZLE;
+			}
 			// end debug
 		}
 
