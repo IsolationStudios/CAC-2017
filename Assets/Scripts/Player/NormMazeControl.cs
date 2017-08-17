@@ -8,29 +8,11 @@ using Managers;
  */
 
 namespace Player {
-	public class NormMazeControl : MonoBehaviour {
+	public class NormMazeControl : Player2D {
 
-		float mult = 0.01f;
-		Rigidbody2D rb;
+		override protected void Update(){
 
-		void Start(){
-			rb = transform.GetComponent<Rigidbody2D> ();	
-		}
-
-		void Update(){
-			// Controls
-			if (InputManager.instance.GO_FORWARD_CONT) {
-				rb.AddForce (Vector2.up);
-			}
-			if (InputManager.instance.TURN_RIGHT_CONT) {
-				rb.AddForce (Vector2.right);
-			}
-			if (InputManager.instance.GO_BACKWARD_CONT) {
-				rb.AddForce (Vector2.down);
-			}
-			if (InputManager.instance.TURN_LEFT_CONT) {
-				rb.AddForce (Vector2.left);
-			}
+			base.Update ();
 
 			// Win
 			// TEMP: GO BACK TO ROOM 1

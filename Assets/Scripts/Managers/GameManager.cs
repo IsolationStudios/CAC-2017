@@ -48,6 +48,10 @@ namespace Managers {
 				GoTo ("sweeper");
 				GameState.state = GameState.State.PUZZLE;
 			}
+			if (Input.GetKeyDown ("5")) {
+				GoTo ("shmup");
+				GameState.state = GameState.State.PUZZLE;
+			}
 			// end debug
 		}
 
