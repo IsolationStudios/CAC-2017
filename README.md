@@ -27,8 +27,8 @@ Open in Unity project wizard
 
 # TODO
   - inventory
+  - final boss
   - mobile support (buttons) + input manager
-  - story progression
-  - saving
+  - story progression + saving
   - title screen + screen control
   - art
