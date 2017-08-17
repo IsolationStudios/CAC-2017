@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Managers;
 
 /*
  * Controls player movement on main world
  */
 
 namespace Player {
-	public class MazeControl : MonoBehaviour {
+	public class GravMazeControl : MonoBehaviour {
 		int counter;
 		int coolDown = 0;
+
+		public GameObject target;
 
 		void Update () {
 
@@ -19,15 +22,23 @@ namespace Player {
 			if (coolDown > 0)
 				return;
 
-			if (GameState.state == GameState.State.OPEN) {
-				if (Input.GetKeyDown ("d")) {
-					coolDown = 50;
+			// Controls
+			if (GameState.state == GameState.State.PUZZLE) {
+				if (InputManager.instance.TURN_RIGHT) {
+					coolDown = 30;
 					InvokeRepeating ("TurnRight", 0, 0.01f);
 				}
-				else if (Input.GetKeyDown ("a")) {
-					coolDown = 50;
+				else if (InputManager.instance.TURN_LEFT) {
+					coolDown = 30;
 					InvokeRepeating ("TurnLeft", 0, 0.01f);
 				}
+			}
+
+			//Win
+			//TEMP: GO BACK TO ROOM 1
+			if (target.transform.position.y < -1) {
+				GameState.state = GameState.State.OPEN;
+				GameManager.instance.GoTo ("room01");
 			}
 		}
 

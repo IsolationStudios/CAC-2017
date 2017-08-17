@@ -32,8 +32,16 @@ namespace Managers {
 			s = GameState.state;
 			id = GameState.lookingAt;
 
-			if (Input.GetKeyDown ("q")) {
+			if (Input.GetKeyDown ("1")) {
 				GoTo ("comboLock");
+				GameState.state = GameState.State.PUZZLE;
+			}
+			if (Input.GetKeyDown ("2")) {
+				GoTo ("roseMaze");
+				GameState.state = GameState.State.PUZZLE;
+			}
+			if (Input.GetKeyDown ("3")) {
+				GoTo ("normMaze");
 				GameState.state = GameState.State.PUZZLE;
 			}
 			// end debug
