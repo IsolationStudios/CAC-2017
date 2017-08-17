@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Manages music and sfx
+ */
+
 namespace Managers {
 	public class SoundManager : MonoBehaviour {
 		public static SoundManager instance;

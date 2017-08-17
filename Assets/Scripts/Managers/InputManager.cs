@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Manages user input
+ */
+
 namespace Managers {
 	public class InputManager : MonoBehaviour {
 		public static InputManager instance;

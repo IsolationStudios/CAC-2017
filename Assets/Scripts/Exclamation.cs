@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Excalamation particle
+ */
+
 public class Exclamation : MonoBehaviour {
 
 	// Use this for initialization

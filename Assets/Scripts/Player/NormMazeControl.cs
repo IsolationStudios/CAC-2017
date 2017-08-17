@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Managers;
 
+/*
+ * Player control for normal maze
+ */
+
 namespace Player {
 	public class NormMazeControl : MonoBehaviour {
 
