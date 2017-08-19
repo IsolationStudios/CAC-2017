@@ -13,7 +13,6 @@ public class Boss : MonoBehaviour {
 	public GameObject enemybullet;
 
 	int counter = 0;
-	int dir = 1;
 	int shootInterval = 10;
 
 	void Start () {

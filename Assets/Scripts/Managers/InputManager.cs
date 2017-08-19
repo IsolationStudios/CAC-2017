@@ -23,7 +23,7 @@ namespace Managers {
 		public bool TURN_LEFT_CONT;
 		public bool TURN_RIGHT_CONT;
 
-		void Start () {
+		void Awake () {
 			if (instance == null)
 				instance = this;
 			else
