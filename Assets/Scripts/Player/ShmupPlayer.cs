@@ -14,7 +14,7 @@ namespace Player{
 
 			if(Input.GetMouseButton(0) && coolDown <= 0){
 				Fire ();
-				coolDown = 30;
+				coolDown = 100;
 			}
 
 			coolDown--;
