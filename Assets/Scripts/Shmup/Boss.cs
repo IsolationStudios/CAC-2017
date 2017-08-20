@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameUI;
 
+/*
+ * Bullet hell final boss
+ */
+
 public class Boss : MonoBehaviour {
 
 	Rigidbody2D rb;
@@ -11,12 +15,14 @@ public class Boss : MonoBehaviour {
 	public string[] dialogueArray;
 
 	public GameObject enemybullet;
+	public Timer timer;
 
 	int counter = 0;
 	int shootInterval = 10;
 
 	void Start () {
 		rb = transform.GetComponent<Rigidbody2D> ();
+		timer = transform.GetComponent<Timer> ();
 		Fire ();
 	}
 
@@ -39,9 +45,14 @@ public class Boss : MonoBehaviour {
 	void InitTestBullet(){
 		transform.position = new Vector3 (-0.9f, transform.position.y, transform.position.z);
 		counter = 0;
-		//TODO: MAKE TIMER SYSTEM??????
-		InvokeRepeating("ShootRight", 0f, 0.03f);
-		InvokeRepeating("ShootLeft", 3f, 0.03f);
+
+		timer.Reset ();
+		for (int i = 0; i < 30; i++) {
+			timer.SetTask (ShootRight, 50);
+			timer.SetWait (10);
+			timer.SetTask (ShootLeft, 50);
+			timer.SetWait (10);
+		}
 	}
 	void ShootRight(){
 		//Movement
