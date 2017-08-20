@@ -25,11 +25,12 @@ Open in Unity project wizard
   - sfx + sound manager
   - character portraits
   - extra dialogue options
-
-# TODO
   - inventory
-  - final boss
-  - mobile support (buttons) + input manager
+  - input manager
   - story progression + saving
+  
+# TODO
+  - final boss
+  - mobile support (buttons)
   - title screen + screen control
   - art
