@@ -18,7 +18,7 @@ namespace Player {
 		void Update () {
 			if (GameState.state == GameState.State.OPEN) {
 				// Moving
-				if (InputManager.instance.GO_FORWARD) {
+				if (InputManager.instance.GO_FORWARD_CONT) {
 					target = transform.position + transform.forward * 10;
 
 					if (!GameManager.instance.CheckInVec(target))
@@ -29,7 +29,7 @@ namespace Player {
 
 					GameState.state = GameState.State.MOVING;
 				}
-				else if (InputManager.instance.GO_BACKWARD) {
+				else if (InputManager.instance.GO_BACKWARD_CONT) {
 					target = transform.position - transform.forward * 10;
 
 					if (!GameManager.instance.CheckInVec(target))
@@ -40,7 +40,7 @@ namespace Player {
 
 					GameState.state = GameState.State.MOVING;
 				}
-				else if (InputManager.instance.GO_LEFT) {
+				else if (InputManager.instance.GO_LEFT_CONT) {
 					target = transform.position - transform.right * 10;
 
 					if (!GameManager.instance.CheckInVec(target))
@@ -51,7 +51,7 @@ namespace Player {
 
 					GameState.state = GameState.State.MOVING;
 				}
-				else if (InputManager.instance.GO_RIGHT) {
+				else if (InputManager.instance.GO_RIGHT_CONT) {
 					target = transform.position + transform.right * 10;
 
 					if (!GameManager.instance.CheckInVec(target))

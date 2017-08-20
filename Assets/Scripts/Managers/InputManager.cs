@@ -20,6 +20,8 @@ namespace Managers {
 
 		public bool GO_FORWARD_CONT;
 		public bool GO_BACKWARD_CONT;
+		public bool GO_RIGHT_CONT;
+		public bool GO_LEFT_CONT;
 		public bool TURN_LEFT_CONT;
 		public bool TURN_RIGHT_CONT;
 
@@ -62,7 +64,16 @@ namespace Managers {
 				TURN_RIGHT = false;
 			}
 				
-
+			if (Input.GetKey ("a") && Input.GetKey (KeyCode.LeftShift)) {
+				GO_LEFT_CONT = true;
+			} else {
+				GO_LEFT_CONT = false;
+			}
+			if (Input.GetKey ("d") && Input.GetKey (KeyCode.LeftShift)) {
+				GO_RIGHT_CONT = true;
+			} else {
+				GO_RIGHT_CONT = false;
+			}
 			if (Input.GetKey ("w")) {
 				GO_FORWARD_CONT = true;
 			} else {
