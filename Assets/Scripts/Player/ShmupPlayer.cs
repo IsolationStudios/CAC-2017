@@ -6,6 +6,8 @@ using Managers;
 namespace Player{
 	public class ShmupPlayer : Player2D {
 
+		public int hp;
+
 		public GameObject bullet;
 		int coolDown;
 
@@ -14,7 +16,7 @@ namespace Player{
 
 			if(Input.GetMouseButton(0) && coolDown <= 0){
 				Fire ();
-				coolDown = 100;
+				coolDown = 10;
 			}
 
 			coolDown--;

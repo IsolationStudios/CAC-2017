@@ -21,7 +21,7 @@ namespace Shmup{
 			
 		void OnCollisionEnter2D(Collision2D collider){
 			if (collider.transform.tag == "Boss") {
-				print ("hit");
+				collider.transform.GetComponent<Boss> ().hp--;
 			}
 			Destroy (gameObject);
 		}

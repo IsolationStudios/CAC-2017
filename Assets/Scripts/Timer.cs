@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour {
 				fixedCmd = DoNothing;
 				return;
 			}
-
+				
 			cmdList.RemoveAt (0);
 			cmdTimes.RemoveAt (0);
 			Reset ();
