@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Queues and executes functions in fixed time
+ * Queues and executes functions in fixed time for puzzles
  */
 
 public class Timer : MonoBehaviour {
@@ -15,24 +15,27 @@ public class Timer : MonoBehaviour {
 	public List<int> cmdTimes = new List<int> ();
 
 	void FixedUpdate(){
-		// Set cmd
-		fixedCmd = cmdList [0];
+		// Only time when in battle
+		if (GameState.state != GameState.State.TALKING) {
+			// Set cmd
+			fixedCmd = cmdList [0];
 
-		// Move onto next cmd
-		if (fixedUpdateVal == cmdTimes [0]) {
-			// Do nothing if at end
-			if (cmdList.Count == 1) {
-				fixedCmd = DoNothing;
-				return;
+			// Move onto next cmd
+			if (fixedUpdateVal == cmdTimes [0]) {
+				// Do nothing if at end
+				if (cmdList.Count == 1) {
+					fixedCmd = DoNothing;
+					return;
+				}
+					
+				cmdList.RemoveAt (0);
+				cmdTimes.RemoveAt (0);
+				Reset ();
 			}
-				
-			cmdList.RemoveAt (0);
-			cmdTimes.RemoveAt (0);
-			Reset ();
-		}
 
-		fixedCmd ();
-		fixedUpdateVal++;
+			fixedCmd ();
+			fixedUpdateVal++;
+		}
 	}
 
 	void DoNothing(){

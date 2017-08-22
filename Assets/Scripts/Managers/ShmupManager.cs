@@ -25,6 +25,11 @@ namespace Managers{
 		
 		// Update is called once per frame
 		void Update () {
+
+			if (GameState.state == GameState.State.DONE_TALKING) {
+				GameState.state = GameState.State.PUZZLE;
+			}
+
 			// win
 			if (boss.hp <= 0) {
 				print ("you win");

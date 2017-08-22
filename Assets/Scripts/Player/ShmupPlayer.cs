@@ -12,16 +12,18 @@ namespace Player{
 		int coolDown;
 
 		override protected void Update(){
-			base.Update ();
+			if (GameState.state == GameState.State.PUZZLE) {
+				base.Update ();
 
-			if(Input.GetMouseButton(0) && coolDown <= 0){
-				Fire ();
-				coolDown = 10;
-			}
+				if (Input.GetMouseButton (0) && coolDown <= 0) {
+					Fire ();
+					coolDown = 10;
+				}
 
-			coolDown--;
-			if(coolDown < 0){
-				coolDown = 0;
+				coolDown--;
+				if (coolDown < 0) {
+					coolDown = 0;
+				}
 			}
 		}
 

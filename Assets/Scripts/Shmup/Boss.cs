@@ -56,16 +56,17 @@ public class Boss : MonoBehaviour {
 		hpText.text = hpt;
 	}
 
-	// ----------------
-	//  Bullet patterns
-	// ----------------
+	// --------------------------------------------------------------------------------------------------------------------------
+	//  														Bullet patterns
+	// --------------------------------------------------------------------------------------------------------------------------
 	void InitTestBullet(){
 		transform.position = new Vector3 (0, transform.position.y, transform.position.z);
 		counter = 0;
 
 		timer.Reset ();
+
 		for (int i = 0; i < 30; i++) {
-			/*
+			
 			timer.SetTask (MoveRight, 50);
 			timer.SetWait (10);
 			timer.SetTask (ShootCircle, 10);
@@ -76,8 +77,8 @@ public class Boss : MonoBehaviour {
 			timer.SetWait (10);
 			timer.SetTask (MoveCenter, 50);
 			timer.SetTask (ShootArch, 500);
-			*/
-			timer.SetTask (TheWall, 500);
+			timer.SetWait (100);
+			timer.SetTask (Talk, 1);
 		}
 	}
 
