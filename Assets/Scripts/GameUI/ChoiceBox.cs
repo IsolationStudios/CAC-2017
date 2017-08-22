@@ -8,12 +8,10 @@ using UnityEngine;
 
 namespace GameUI{
 	public class ChoiceBox : MonoBehaviour {
-
 		public string[] dialogueArray;
 		public GameObject dBox;
 
 		public void Chosen(){
-
 			//Play dialogue
 			var d = Instantiate (dBox);
 			d.transform.SetParent(GameObject.Find ("Canvas").transform, false);

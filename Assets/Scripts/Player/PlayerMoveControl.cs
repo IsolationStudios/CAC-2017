@@ -19,7 +19,7 @@ namespace Player {
 			if (GameState.state == GameState.State.OPEN) {
 				// Moving
 				if (InputManager.instance.GO_FORWARD_CONT) {
-					target = transform.position + transform.forward * 10;
+					target = transform.position + (transform.forward*10);
 
 					if (!GameManager.instance.CheckInVec(target))
 						return;
@@ -30,7 +30,7 @@ namespace Player {
 					GameState.state = GameState.State.MOVING;
 				}
 				else if (InputManager.instance.GO_BACKWARD_CONT) {
-					target = transform.position - transform.forward * 10;
+					target = transform.position - (transform.forward*10);
 
 					if (!GameManager.instance.CheckInVec(target))
 						return;
@@ -41,7 +41,7 @@ namespace Player {
 					GameState.state = GameState.State.MOVING;
 				}
 				else if (InputManager.instance.GO_LEFT_CONT) {
-					target = transform.position - transform.right * 10;
+					target = transform.position - (transform.right*10);
 
 					if (!GameManager.instance.CheckInVec(target))
 						return;
@@ -52,7 +52,7 @@ namespace Player {
 					GameState.state = GameState.State.MOVING;
 				}
 				else if (InputManager.instance.GO_RIGHT_CONT) {
-					target = transform.position + transform.right * 10;
+					target = transform.position + (transform.right*10);
 
 					if (!GameManager.instance.CheckInVec(target))
 						return;
@@ -107,6 +107,5 @@ namespace Player {
 				GameState.lookingAt = -1;
 			}
 		}
-
 	}
 }

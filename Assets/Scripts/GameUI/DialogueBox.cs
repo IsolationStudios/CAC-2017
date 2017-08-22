@@ -77,7 +77,8 @@ namespace GameUI{
 				if (reg.IsMatch(currD [dLetIndex-1].ToString()) && speed == NORM_SPEED) {
 					dCounter = 1;
 					speed = SLOW_SPEED;
-				} else if(!reg.IsMatch(currD [dLetIndex-1].ToString())){
+				}
+				else if(!reg.IsMatch(currD [dLetIndex-1].ToString())){
 					speed = NORM_SPEED;
 				}
 

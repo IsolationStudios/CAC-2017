@@ -9,9 +9,7 @@ using Managers;
 
 namespace Player {
 	public class NormMazeControl : Player2D {
-
 		override protected void Update(){
-
 			base.Update ();
 
 			// Win

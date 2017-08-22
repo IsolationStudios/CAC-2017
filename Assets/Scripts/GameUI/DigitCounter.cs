@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 namespace GameUI {
 	public class DigitCounter : MonoBehaviour {
-
 		private Button upBtn;
 		private Button downBtn;
 		private Text digitText;
@@ -44,7 +43,5 @@ namespace GameUI {
 			val = 0;
 			digitText.text = val.ToString();
 		}
-		
-
 	}
 }

@@ -28,10 +28,6 @@ namespace Sweeper{
 			sr.sprite = notDug;
 		}
 
-		void Update () {
-			
-		}
-
 		void OnMouseDown(){
 			if (!isDug && GameState.state == GameState.State.PUZZLE) {
 				isDug = true;
@@ -43,7 +39,6 @@ namespace Sweeper{
 
 				GameState.state = GameState.State.TALKING;
 			}
-
 		}
 	}
 }

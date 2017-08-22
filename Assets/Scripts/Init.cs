@@ -7,7 +7,6 @@ using UnityEngine;
  */
 
 public class Init : MonoBehaviour {
-
 	// Use this for initialization
 	void Awake () {
 		Screen.SetResolution (1920, 1080, false);

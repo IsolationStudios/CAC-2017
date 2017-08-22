@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Managers;
 
+/*
+ * Bullet hell player
+ */
+
 namespace Player{
 	public class ShmupPlayer : Player2D {
-
 		public int hp;
 
 		public GameObject bullet;
@@ -28,7 +31,7 @@ namespace Player{
 		}
 
 		void Fire(){
-			Instantiate (bullet, transform.position + Vector3.up*0.2f, transform.rotation);	
+			Instantiate (bullet, transform.position + (Vector3.up*0.2f), transform.rotation);	
 		}
 	}
 }

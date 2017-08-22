@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Records inventory bools
+ */
+
 namespace Managers{
 	public class InventorySystem : MonoBehaviour {
 		public static InventorySystem instance;

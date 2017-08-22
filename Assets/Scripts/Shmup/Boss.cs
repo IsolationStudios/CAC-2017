@@ -9,7 +9,6 @@ using UnityEngine.UI;
  */
 
 public class Boss : MonoBehaviour {
-
 	public int hp;
 
 	Rigidbody2D rb;
@@ -66,7 +65,6 @@ public class Boss : MonoBehaviour {
 		timer.Reset ();
 
 		for (int i = 0; i < 30; i++) {
-			
 			timer.SetTask (MoveRight, 50);
 			timer.SetWait (10);
 			timer.SetTask (ShootCircle, 10);
@@ -86,7 +84,8 @@ public class Boss : MonoBehaviour {
 		//Movement
 		if (transform.position.x < 1) {
 			rb.AddForce (Vector2.right * rb.mass * 100);
-		} else {
+		}
+		else {
 			CancelInvoke ("ShootRight");
 		}
 	}
@@ -94,7 +93,8 @@ public class Boss : MonoBehaviour {
 		//Movement
 		if (transform.position.x > -1) {
 			rb.AddForce (Vector2.left * rb.mass * 100);
-		} else {
+		}
+		else {
 			CancelInvoke ("ShootLeft");
 		}
 	}
@@ -105,7 +105,8 @@ public class Boss : MonoBehaviour {
 		}
 		else if(transform.position.x < -0.01){
 			rb.AddForce (Vector2.right * rb.mass * 100);
-		} else {
+		}
+		else {
 			transform.position = new Vector3 (0, transform.position.y, transform.position.z);
 			CancelInvoke ("MoveCenter");
 		}
@@ -115,7 +116,7 @@ public class Boss : MonoBehaviour {
 		MoveRight ();
 
 		if (counter % shootInterval == 0) {
-			Instantiate (enemybullet, transform.position + Vector3.down*0.2f, Quaternion.identity);
+			Instantiate (enemybullet, transform.position + (Vector3.down*0.2f), Quaternion.identity);
 		}
 
 		counter++;
@@ -124,7 +125,7 @@ public class Boss : MonoBehaviour {
 		MoveLeft ();
 
 		if (counter % shootInterval == 0) {
-			Instantiate (enemybullet, transform.position + Vector3.down*0.2f, Quaternion.identity);
+			Instantiate (enemybullet, transform.position + (Vector3.down*0.2f), Quaternion.identity);
 		}
 
 		counter++;
@@ -132,7 +133,7 @@ public class Boss : MonoBehaviour {
 	void  ShootArch(){
 		if (counter % shootInterval == 0) {
 			for (int i = 0; i < 4; i++) {
-				Instantiate (enemybullet, transform.position, Quaternion.Euler (0, 0, 90 * i + counter));
+				Instantiate (enemybullet, transform.position, Quaternion.Euler (0, 0, (90*i) + counter));
 			}
 		}
 		counter++;
@@ -149,12 +150,12 @@ public class Boss : MonoBehaviour {
 	void  TheWall(){
 		if (counter % shootInterval == 0) {
 			for (int i = 0; i < 10; i++) {
-				Instantiate (enemybullet, new Vector3(-1 + 2f/10*i, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate (enemybullet, new Vector3(-1 + (2f/10*i), transform.position.y, transform.position.z), Quaternion.identity);
 			}
 		}
 		else if(counter % shootInterval == 5){
 			for (int i = 0; i < 10; i++) {
-				Instantiate (enemybullet, new Vector3(-.9f + 2f/10*i, transform.position.y, transform.position.z), Quaternion.identity);
+				Instantiate (enemybullet, new Vector3(-.9f + (2f/10*i), transform.position.y, transform.position.z), Quaternion.identity);
 			}
 		}
 		counter++;

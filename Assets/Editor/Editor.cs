@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
-public class Editor : MonoBehaviour {
+/*
+ * Editor scripts
+ */
 
+public class Editor : MonoBehaviour {
+	
 	[MenuItem("Edit/Play Init %0")]
 	public static void PlayFromPreLaunchScene(){
 		if(EditorApplication.isPlaying){

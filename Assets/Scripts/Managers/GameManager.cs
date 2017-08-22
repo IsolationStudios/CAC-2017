@@ -32,7 +32,6 @@ namespace Managers {
 		}
 
 		void Update () {
-
 			// TEMP: debug
 			s = GameState.state;
 			id = GameState.lookingAt;

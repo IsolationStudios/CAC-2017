@@ -33,69 +33,83 @@ namespace Managers {
 		}
 
 		void Update(){
+			DetectPC ();
+		}
+
+		void DetectPC(){
 			if (Input.GetKeyDown ("a") && Input.GetKey (KeyCode.LeftShift)) {
 				GO_LEFT = true;
-			} else {
+			}
+			else {
 				GO_LEFT = false;
 			}
 			if (Input.GetKeyDown ("d") && Input.GetKey (KeyCode.LeftShift)) {
 				GO_RIGHT = true;
-			} else {
+			}
+			else {
 				GO_RIGHT = false;
 			}
 			if (Input.GetKeyDown ("w")) {
 				GO_FORWARD = true;
-			} else {
+			}
+			else {
 				GO_FORWARD = false;
 			}
 			if (Input.GetKeyDown ("a")) {
 				TURN_LEFT = true;
-			} else {
+			}
+			else {
 				TURN_LEFT = false;
 			}
 			if (Input.GetKeyDown ("s")) {
 				GO_BACKWARD = true;
-			} else {
+			}
+			else {
 				GO_BACKWARD = false;
 			}
 			if (Input.GetKeyDown ("d")) {
 				TURN_RIGHT = true;
-			} else {
+			}
+			else {
 				TURN_RIGHT = false;
 			}
-				
+
 			if (Input.GetKey ("a") && Input.GetKey (KeyCode.LeftShift)) {
 				GO_LEFT_CONT = true;
-			} else {
+			}
+			else {
 				GO_LEFT_CONT = false;
 			}
 			if (Input.GetKey ("d") && Input.GetKey (KeyCode.LeftShift)) {
 				GO_RIGHT_CONT = true;
-			} else {
+			}
+			else {
 				GO_RIGHT_CONT = false;
 			}
 			if (Input.GetKey ("w")) {
 				GO_FORWARD_CONT = true;
-			} else {
+			}
+			else {
 				GO_FORWARD_CONT = false;
 			}
 			if (Input.GetKey ("a")) {
 				TURN_LEFT_CONT = true;
-			} else {
+			}
+			else {
 				TURN_LEFT_CONT = false;
 			}
 			if (Input.GetKey ("s")) {
 				GO_BACKWARD_CONT = true;
-			} else {
+			}
+			else {
 				GO_BACKWARD_CONT = false;
 			}
 			if (Input.GetKey ("d")) {
 				TURN_RIGHT_CONT = true;
-			} else {
+			}
+			else {
 				TURN_RIGHT_CONT = false;
 			}
-
-
 		}
 	}
 }

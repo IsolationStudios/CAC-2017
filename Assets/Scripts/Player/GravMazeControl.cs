@@ -4,7 +4,7 @@ using UnityEngine;
 using Managers;
 
 /*
- * Controls player movement on main world
+ * Controls gravity maze
  */
 
 namespace Player {
@@ -15,7 +15,6 @@ namespace Player {
 		public GameObject target;
 
 		void Update () {
-
 			coolDown--;
 			if (coolDown < 0)
 				coolDown = 0;
@@ -58,7 +57,5 @@ namespace Player {
 				counter = 0;
 			}
 		}
-
-
 	}
 }

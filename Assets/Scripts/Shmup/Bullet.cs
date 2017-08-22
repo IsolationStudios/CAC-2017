@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Bullet fired by player
+ */
+
 namespace Shmup{
 	public class Bullet : MonoBehaviour {
-
 		Rigidbody2D rb;
 
 		void Start () {
@@ -12,11 +15,6 @@ namespace Shmup{
 			rb.AddForce (Vector2.up*10);
 
 			Destroy (gameObject, 1.0f);
-		}
-		
-		// Update is called once per frame
-		void Update () {
-			
 		}
 			
 		void OnCollisionEnter2D(Collision2D collider){

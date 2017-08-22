@@ -10,7 +10,6 @@ using Player;
 
 namespace Managers{
 	public class ShmupManager : MonoBehaviour {
-
 		public GameObject player_obj;
 		public GameObject boss_obj;
 
@@ -25,7 +24,6 @@ namespace Managers{
 		
 		// Update is called once per frame
 		void Update () {
-
 			if (GameState.state == GameState.State.DONE_TALKING) {
 				GameState.state = GameState.State.PUZZLE;
 			}
