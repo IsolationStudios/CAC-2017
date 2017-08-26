@@ -17,6 +17,23 @@ namespace Player {
 		Vector3 oldPos;
 
 		void Start(){
+
+			//Init pos from save
+			if (!GameManager.instance.isInit) {
+				transform.position = new Vector3 (
+					GameManager.instance.initX,
+					transform.position.y,
+					GameManager.instance.initZ
+				);
+				transform.rotation = Quaternion.Euler(
+					0,
+					GameManager.instance.initY,
+					0
+				);
+
+				GameManager.instance.isInit = true;
+			}
+
 			//Set correct position - HARDCODED
 			//TODO: add correct positions
 			if (GameManager.instance.previousScene == "room02" && GameManager.instance.currentScene == "room03") {
@@ -34,6 +51,22 @@ namespace Player {
 			else if (GameManager.instance.previousScene == "room04" && GameManager.instance.currentScene == "room03") {
 				transform.position = new Vector3 (110, -0.5f, 160);
 				transform.rotation = Quaternion.Euler (0, 180, 0);
+			}
+			else if (GameManager.instance.previousScene == "room04" && GameManager.instance.currentScene == "room05") {
+				transform.position = new Vector3 (30, -0.5f, 140);
+				transform.rotation = Quaternion.Euler (0, 90, 0);
+			}
+			else if (GameManager.instance.previousScene == "room05" && GameManager.instance.currentScene == "room04") {
+				transform.position = new Vector3 (100, -0.5f, 60);
+				transform.rotation = Quaternion.Euler (0, -90, 0);
+			}
+			else if (GameManager.instance.previousScene == "room05" && GameManager.instance.currentScene == "room06") {
+				transform.position = new Vector3 (40, -0.5f, 280);
+				transform.rotation = Quaternion.Euler (0, 180, 0);
+			}
+			else if (GameManager.instance.previousScene == "room06" && GameManager.instance.currentScene == "room05") {
+				transform.position = new Vector3 (50, -0.5f, 10);
+				transform.rotation = Quaternion.Euler (0, 0, 0);
 			}
 		}
 

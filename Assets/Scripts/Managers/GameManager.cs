@@ -15,6 +15,11 @@ namespace Managers {
 		public string currentScene;
 		public string previousScene;
 
+		public int initX;
+		public int initZ;
+		public int initY;
+		public bool isInit;
+
 		public ArrayList floorLocs = new ArrayList();
 
 		void Awake () {
@@ -84,16 +89,25 @@ namespace Managers {
 		// ------
 		public void Reset(){
 			PlayerPrefs.SetString("currentScene", "room01");
+			PlayerPrefs.SetInt ("xPos", 0);
+			PlayerPrefs.SetInt ("zPos", 0);
+			PlayerPrefs.SetInt ("yDir", 0);
 			InventorySystem.instance.Reset ();
 		}
 
 		public void Load(){
 			currentScene = PlayerPrefs.GetString("currentScene", "room01");
+			initX = PlayerPrefs.GetInt ("xPos");
+			initZ = PlayerPrefs.GetInt ("zPos");
+			initY = PlayerPrefs.GetInt ("yDir");
 			InventorySystem.instance.Load ();
 		}
 
 		public void Save(){
 			PlayerPrefs.SetString("currentScene", currentScene);
+			PlayerPrefs.SetInt ("xPos", ExtraMath.RoundToNearest(GameObject.Find("Player").transform.position.x, 10));
+			PlayerPrefs.SetInt ("zPos", ExtraMath.RoundToNearest(GameObject.Find("Player").transform.position.z, 10));
+			PlayerPrefs.SetInt ("yDir", ExtraMath.RoundToNearest(GameObject.Find("Player").transform.rotation.eulerAngles.y, 90));
 			InventorySystem.instance.Save ();
 		}
 	}
