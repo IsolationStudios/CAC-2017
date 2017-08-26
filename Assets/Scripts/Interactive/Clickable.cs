@@ -13,8 +13,8 @@ namespace Interactive{
 	public class Clickable : MonoBehaviour {
 		public int id = -2;
 		public string name;
-		public static float threshold = 0.1f;
-		public static float speed = 5;
+		public static float threshold = 0.001f;
+		public static float speed = 10;
 
 		public GameObject exclamation;
 
@@ -92,6 +92,14 @@ namespace Interactive{
 			// Stops lerp
 			if (ExtraMath.CheckCloseEnough (Camera.main.transform.position, savedCamPos, threshold)) {
 				CancelInvoke ();
+
+				//Round position
+				//Adding 0.1 cause weird math...
+				Camera.main.transform.position = new Vector3(
+					ExtraMath.RoundToNearest(Camera.main.transform.position.x, 10) + 0.01f,
+					Camera.main.transform.position.y,
+					ExtraMath.RoundToNearest(Camera.main.transform.position.z, 10) + 0.01f
+				);
 
 				GameState.state = GameState.State.OPEN;
 				GameState.lookingAt = -1;

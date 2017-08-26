@@ -17,4 +17,8 @@ public static class ExtraMath {
 		return (Mathf.Abs (a.x - b.x) < threshold &&
 			Mathf.Abs (a.z - b.z) < threshold);
 	}
+
+	public static int RoundToNearest(float num, int level){
+		return Mathf.RoundToInt (num / level) * level;
+	}
 }

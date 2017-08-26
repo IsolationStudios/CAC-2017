@@ -14,6 +14,20 @@ namespace Player {
 		int speed = 10;
 		float threshold = 0.1f;
 		Vector3 target;
+		Vector3 oldPos;
+
+		void Start(){
+			//Set correct position - HARDCODED
+			//TODO: add correct positions
+			if (GameManager.instance.previousScene == "room02" && GameManager.instance.currentScene == "room03") {
+				transform.position = new Vector3 (10, -0.5f, 10);
+				transform.rotation = Quaternion.Euler (0, 0, 0);
+			}
+			else if (GameManager.instance.previousScene == "room03" && GameManager.instance.currentScene == "room02") {
+				transform.position = new Vector3 (-170, -0.5f, -10);
+				transform.rotation = Quaternion.Euler (0, 0, 0);
+			}
+		}
 
 		void Update () {
 			if (GameState.state == GameState.State.OPEN) {
@@ -25,6 +39,7 @@ namespace Player {
 						return;
 
 					CancelInvoke ();
+					oldPos = transform.position;
 					InvokeRepeating("MoveToFloor", 0, 0.01f);
 
 					GameState.state = GameState.State.MOVING;
@@ -95,13 +110,23 @@ namespace Player {
 		}
 
 		void MoveToFloor(){
-			Camera.main.transform.position = Vector3.Lerp (	Camera.main.transform.position,
+			Camera.main.transform.position = Vector3.Lerp (
+				Camera.main.transform.position,
 				target,
-				Time.deltaTime * speed);
+				Time.deltaTime * speed
+			);
 
 			// Stops lerp
 			if (ExtraMath.CheckCloseEnough (Camera.main.transform.position, target, threshold)) {
 				CancelInvoke ();
+
+				//Round position
+				//Adding 0.1 cause weird math...
+				transform.position = new Vector3(
+					ExtraMath.RoundToNearest(transform.position.x, 10) + 0.01f,
+					transform.position.y,
+					ExtraMath.RoundToNearest(transform.position.z, 10) + 0.01f
+				);
 
 				GameState.state = GameState.State.OPEN;
 				GameState.lookingAt = -1;

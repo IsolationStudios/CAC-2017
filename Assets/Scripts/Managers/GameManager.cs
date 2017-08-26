@@ -13,6 +13,7 @@ namespace Managers {
 		public GameState.State s;
 		public int id;
 		public string currentScene;
+		public string previousScene;
 
 		public ArrayList floorLocs = new ArrayList();
 
@@ -32,6 +33,7 @@ namespace Managers {
 		}
 
 		void Update () {
+
 			// TEMP: debug
 			s = GameState.state;
 			id = GameState.lookingAt;
@@ -61,8 +63,10 @@ namespace Managers {
 
 		public void GoTo(string scene){
 			floorLocs.Clear ();
-			currentScene = scene;
 			SceneManager.LoadScene (scene);
+
+			previousScene = currentScene;
+			currentScene = scene;
 		}
 
 		// Checks if loc is a floor
