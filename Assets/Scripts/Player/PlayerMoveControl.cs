@@ -27,6 +27,14 @@ namespace Player {
 				transform.position = new Vector3 (-170, -0.5f, -20);
 				transform.rotation = Quaternion.Euler (0, 0, 0);
 			}
+			else if (GameManager.instance.previousScene == "room03" && GameManager.instance.currentScene == "room04") {
+				transform.position = new Vector3 (0, -0.5f, 20);
+				transform.rotation = Quaternion.Euler (0, 90, 0);
+			}
+			else if (GameManager.instance.previousScene == "room04" && GameManager.instance.currentScene == "room03") {
+				transform.position = new Vector3 (110, -0.5f, 160);
+				transform.rotation = Quaternion.Euler (0, 180, 0);
+			}
 		}
 
 		void Update () {
