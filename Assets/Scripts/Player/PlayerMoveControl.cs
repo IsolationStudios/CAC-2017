@@ -20,11 +20,11 @@ namespace Player {
 			//Set correct position - HARDCODED
 			//TODO: add correct positions
 			if (GameManager.instance.previousScene == "room02" && GameManager.instance.currentScene == "room03") {
-				transform.position = new Vector3 (10, -0.5f, 10);
+				transform.position = new Vector3 (10, -0.5f, 0);
 				transform.rotation = Quaternion.Euler (0, 0, 0);
 			}
 			else if (GameManager.instance.previousScene == "room03" && GameManager.instance.currentScene == "room02") {
-				transform.position = new Vector3 (-170, -0.5f, -10);
+				transform.position = new Vector3 (-170, -0.5f, -20);
 				transform.rotation = Quaternion.Euler (0, 0, 0);
 			}
 		}
