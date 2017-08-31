@@ -9,8 +9,8 @@ using Managers;
 
 namespace Player {
 	public class NormMazeControl : Player2D {
-		override protected void Update(){
-			base.Update ();
+		override protected void FixedUpdate(){
+			base.FixedUpdate ();
 
 			// Win
 			// TEMP: GO BACK TO ROOM 1

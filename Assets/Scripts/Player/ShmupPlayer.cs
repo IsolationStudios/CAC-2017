@@ -14,13 +14,13 @@ namespace Player{
 		public GameObject bullet;
 		int coolDown;
 
-		override protected void Update(){
+		override protected void FixedUpdate(){
 			if (GameState.state == GameState.State.PUZZLE) {
-				base.Update ();
+				base.FixedUpdate ();
 
 				if (Input.GetMouseButton (0) && coolDown <= 0) {
 					Fire ();
-					coolDown = 10;
+					coolDown = 5;
 				}
 
 				coolDown--;

@@ -67,16 +67,12 @@ public class Boss : MonoBehaviour {
 		for (int i = 0; i < 30; i++) {
 			timer.SetTask (MoveRight, 50);
 			timer.SetWait (10);
-			timer.SetTask (ShootCircle, 10);
+			timer.SetTask (ShootCircle, 50);
 			timer.SetWait (10);
 			timer.SetTask (MoveLeft, 50);
 			timer.SetWait (10);
-			timer.SetTask (ShootCircle, 10);
+			timer.SetTask (ShootCircle, 50);
 			timer.SetWait (10);
-			timer.SetTask (MoveCenter, 50);
-			timer.SetTask (ShootArch, 500);
-			timer.SetWait (100);
-			timer.SetTask (Talk, 1);
 		}
 	}
 

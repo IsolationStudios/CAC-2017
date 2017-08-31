@@ -52,12 +52,20 @@ namespace Player {
 				transform.position = new Vector3 (110, -0.5f, 160);
 				transform.rotation = Quaternion.Euler (0, 180, 0);
 			}
-			else if (GameManager.instance.previousScene == "room04" && GameManager.instance.currentScene == "room05") {
+			else if (GameManager.instance.previousScene == "room04" && GameManager.instance.currentScene == "room04.5") {
+				transform.position = new Vector3 (0, -0.5f, 20);
+				transform.rotation = Quaternion.Euler (0, 90, 0);
+			}
+			else if (GameManager.instance.previousScene == "room04.5" && GameManager.instance.currentScene == "room04") {
+				transform.position = new Vector3 (100, -0.5f, 60);
+				transform.rotation = Quaternion.Euler (0, -90, 0);
+			}
+			else if (GameManager.instance.previousScene == "room04.5" && GameManager.instance.currentScene == "room05") {
 				transform.position = new Vector3 (30, -0.5f, 140);
 				transform.rotation = Quaternion.Euler (0, 90, 0);
 			}
-			else if (GameManager.instance.previousScene == "room05" && GameManager.instance.currentScene == "room04") {
-				transform.position = new Vector3 (100, -0.5f, 60);
+			else if (GameManager.instance.previousScene == "room05" && GameManager.instance.currentScene == "room04.5") {
+				transform.position = new Vector3 (100, -0.5f, 20);
 				transform.rotation = Quaternion.Euler (0, -90, 0);
 			}
 			else if (GameManager.instance.previousScene == "room05" && GameManager.instance.currentScene == "room06") {

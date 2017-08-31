@@ -36,7 +36,7 @@ namespace GameUI{
 			dText.text = "";
 
 			if (Application.isEditor) {
-				NORM_SPEED = 8;
+				NORM_SPEED = 5;
 				SLOW_SPEED = 40;
 			}
 			else {
