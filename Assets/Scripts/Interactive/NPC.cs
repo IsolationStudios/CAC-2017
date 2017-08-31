@@ -11,6 +11,7 @@ using GameUI;
 namespace Interactive{
 	public class NPC : Clickable {
 		public string[] dialogueArray;
+		public string[] conds;
 		public GameObject dBox;
 
 		protected override void Update(){
@@ -29,6 +30,7 @@ namespace Interactive{
 			var d = Instantiate (dBox);
 			d.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 			d.GetComponent<DialogueBox> ().dArr = dialogueArray;
+			d.GetComponent<DialogueBox> ().conds = conds;
 
 			//Check for choices
 			Transform choiceParent = transform.Find ("Choices");

@@ -30,6 +30,8 @@ namespace GameUI{
 		public AudioClip dLineSound;
 		public AudioClip exitSound;
 
+		public string[] conds;
+
 		void Start(){
 			dLetIndex = startIndex;
 			dText = (transform.Find ("Text")).transform.GetComponent<Text>();
@@ -102,6 +104,12 @@ namespace GameUI{
 		}
 
 		protected virtual void Kill(){
+
+			// Set bools
+			foreach(string s in conds){
+				InventorySystem.instance.GetType ().GetField (s).SetValue (InventorySystem.instance, 1);
+			}
+
 			SoundManager.instance.PlaySFX(exitSound);
 
 			charPort.HideDisp();
