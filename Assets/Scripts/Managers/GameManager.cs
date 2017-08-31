@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using GameUI;
 
 /*
  * Manages game
@@ -22,6 +24,9 @@ namespace Managers {
 
 		public ArrayList floorLocs = new ArrayList();
 
+		private Image fadeScreen;
+		private SelectDisp selectDisp;
+
 		void Awake () {
 			if (instance == null)
 				instance = this;
@@ -35,6 +40,9 @@ namespace Managers {
 			// Load from mem for now
 			Load ();
 			GoTo (currentScene);
+
+			fadeScreen = GameObject.Find ("FadeScreen").GetComponent<Image>();
+			selectDisp = GameObject.Find ("SelectDisp").GetComponent<SelectDisp>();
 		}
 
 		void Update () {
@@ -63,6 +71,11 @@ namespace Managers {
 				GoTo ("shmup");
 				GameState.state = GameState.State.PUZZLE;
 			}
+			if (Input.GetKeyDown ("6")) {
+				GoTo ("cutscene_test");
+				GameManager.instance.FadeFromBlack ();
+				GameState.state = GameState.State.PUZZLE;
+			}
 			// end debug
 		}
 
@@ -82,6 +95,17 @@ namespace Managers {
 				}
 			}
 			return false;
+		}
+
+		public void FadeToBlack(){
+			fadeScreen.color = Color.black;
+			fadeScreen.canvasRenderer.SetAlpha (0.0f);
+			fadeScreen.CrossFadeAlpha(1.0f, 0.5f, false);
+		}
+		public void FadeFromBlack(){
+			fadeScreen.color = Color.black;
+			fadeScreen.canvasRenderer.SetAlpha (1.0f);
+			fadeScreen.CrossFadeAlpha(0.0f, 0.5f, false);
 		}
 
 		// ------
