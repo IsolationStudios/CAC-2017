@@ -15,7 +15,13 @@ Open in Unity project wizard
   -SHIFT-A/D to strafe
   - click to examine
   - b to exit
-  - Debug: num row
+  - DEBUG: num row
+     - 1: combolock
+	 - 2: gravity maze
+	 - 3: normal maze
+	 - 4: digging game
+	 - 5: shmup
+	 - 6: cutscene test
 
 # Added
 
@@ -28,6 +34,7 @@ Open in Unity project wizard
   - inventory
   - input manager
   - story progression + saving
+  - cutscenes
   
 # TODO
   - final boss

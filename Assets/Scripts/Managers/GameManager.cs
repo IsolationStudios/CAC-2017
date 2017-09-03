@@ -25,7 +25,6 @@ namespace Managers {
 		public ArrayList floorLocs = new ArrayList();
 
 		private Image fadeScreen;
-		private SelectDisp selectDisp;
 
 		void Awake () {
 			if (instance == null)
@@ -42,7 +41,6 @@ namespace Managers {
 			GoTo (currentScene);
 
 			fadeScreen = GameObject.Find ("FadeScreen").GetComponent<Image>();
-			selectDisp = GameObject.Find ("SelectDisp").GetComponent<SelectDisp>();
 		}
 
 		void Update () {

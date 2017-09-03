@@ -31,6 +31,7 @@ namespace GameUI{
 		public AudioClip exitSound;
 
 		public string[] conds;
+		public string gotoScene;
 
 		void Start(){
 			dLetIndex = startIndex;
@@ -110,10 +111,14 @@ namespace GameUI{
 				InventorySystem.instance.GetType ().GetField (s).SetValue (InventorySystem.instance, 1);
 			}
 
+			// Redirect to sceen
+			if (gotoScene != "") {
+				GameManager.instance.FadeFromBlack ();
+				GameManager.instance.GoTo (gotoScene);
+			}
+
 			SoundManager.instance.PlaySFX(exitSound);
-
 			charPort.HideDisp();
-
 			GameState.state = GameState.State.DONE_TALKING;
 			Destroy (gameObject);
 		}

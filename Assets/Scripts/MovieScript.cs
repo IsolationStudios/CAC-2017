@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.Video;
 using Managers;
 
-public class MovieScript : MonoBehaviour {
+/*
+ * Plays cutscene
+ */
 
+public class MovieScript : MonoBehaviour {
 	public VideoPlayer vp;
 	public string gotoScene;
 

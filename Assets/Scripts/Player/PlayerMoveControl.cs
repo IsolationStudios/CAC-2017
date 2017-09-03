@@ -14,7 +14,6 @@ namespace Player {
 		int speed = 10;
 		float threshold = 0.1f;
 		Vector3 target;
-		Vector3 oldPos;
 
 		void Start(){
 
@@ -88,7 +87,6 @@ namespace Player {
 						return;
 
 					CancelInvoke ();
-					oldPos = transform.position;
 					InvokeRepeating("MoveToFloor", 0, 0.01f);
 
 					GameState.state = GameState.State.MOVING;

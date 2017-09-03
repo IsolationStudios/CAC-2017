@@ -39,6 +39,8 @@ public class Boss : MonoBehaviour {
 		InitTestBullet ();
 	}
 
+	// Set to 1 time in timer if not 1st command
+	// Set to 0 in timer otherwise
 	void Talk(){
 		var d = Instantiate (dBox);
 		d.transform.SetParent (GameObject.Find ("Canvas").transform, false);
@@ -64,6 +66,8 @@ public class Boss : MonoBehaviour {
 
 		timer.Reset ();
 
+		timer.SetTask (Talk, 0);
+
 		for (int i = 0; i < 30; i++) {
 			timer.SetTask (MoveRight, 50);
 			timer.SetWait (10);
@@ -72,7 +76,8 @@ public class Boss : MonoBehaviour {
 			timer.SetTask (MoveLeft, 50);
 			timer.SetWait (10);
 			timer.SetTask (ShootCircle, 50);
-			timer.SetWait (10);
+			timer.SetWait (500);
+			timer.SetTask (Talk, 1);
 		}
 	}
 

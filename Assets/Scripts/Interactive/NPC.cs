@@ -6,12 +6,14 @@ using GameUI;
 /*
  * Clickable with dialogue
  * Branching choices added with a Choice empty object containing ChoiceBoxes
+ * Enter names of inventory conds to change in conds
  */
 
 namespace Interactive{
 	public class NPC : Clickable {
 		public string[] dialogueArray;
 		public string[] conds;
+		public string gotoScene;
 		public GameObject dBox;
 
 		protected override void Update(){
@@ -31,6 +33,7 @@ namespace Interactive{
 			d.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 			d.GetComponent<DialogueBox> ().dArr = dialogueArray;
 			d.GetComponent<DialogueBox> ().conds = conds;
+			d.GetComponent<DialogueBox> ().gotoScene = gotoScene;
 
 			//Check for choices
 			Transform choiceParent = transform.Find ("Choices");
