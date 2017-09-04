@@ -13,6 +13,7 @@ namespace Managers{
 		// Inventory data
 		public int hasCat;
 		public int room02Open;
+		//TODO: add invent vars
 
 		void Awake () {
 			if (instance == null)
@@ -21,21 +22,16 @@ namespace Managers{
 				Destroy (gameObject);
 		}
 
-		public void Reset(){
-			PlayerPrefs.SetInt ("hasCat", 0);
-			PlayerPrefs.SetInt ("room02Open", 0);
-		}
-
-		public void Load(){
+		public void Load(Save save){
 			//TODO: load invent
-			hasCat = PlayerPrefs.GetInt ("hasCat", 0);
-			room02Open = PlayerPrefs.GetInt ("room02Open", 0);
+			hasCat = save.hasCat;
+			room02Open = save.room02Open;
 		}
 
-		public void Save(){
+		public void Save(Save save){
 			//TODO: save invent
-			PlayerPrefs.SetInt ("hasCat", hasCat);
-			PlayerPrefs.SetInt ("room02Open", room02Open);
+			save.hasCat = hasCat;
+			save.room02Open = room02Open;
 		}
 	}
 }

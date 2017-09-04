@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -110,27 +112,51 @@ namespace Managers {
 		// Saving
 		// ------
 		public void Reset(){
-			PlayerPrefs.SetString("currentScene", "room01");
-			PlayerPrefs.SetInt ("xPos", 0);
-			PlayerPrefs.SetInt ("zPos", 0);
-			PlayerPrefs.SetInt ("yDir", 0);
-			InventorySystem.instance.Reset ();
+			Save save = new Save ();
+
+			//Write to file
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Create (Application.persistentDataPath + "/gamesave.save");
+			bf.Serialize (file, save);
+			file.Close ();
+
+			print ("reset: " + (Application.persistentDataPath + "/gamesave.save"));
 		}
 
 		public void Load(){
-			currentScene = PlayerPrefs.GetString("currentScene", "room01");
-			initX = PlayerPrefs.GetInt ("xPos");
-			initZ = PlayerPrefs.GetInt ("zPos");
-			initY = PlayerPrefs.GetInt ("yDir");
-			InventorySystem.instance.Load ();
+			if (File.Exists (Application.persistentDataPath + "/gamesave.save")) {
+				//Deserialize
+				BinaryFormatter bf = new BinaryFormatter ();
+				FileStream file = File.Open (Application.persistentDataPath + "/gamesave.save", FileMode.Open);
+				Save save = (Save)bf.Deserialize (file);
+				file.Close ();
+
+				//Set vars
+				currentScene = save.currentScene;
+				initX = save.initX;
+				initZ = save.initZ;
+				initY = save.initY;
+				InventorySystem.instance.Load (save);
+			}
 		}
 
 		public void Save(){
-			PlayerPrefs.SetString("currentScene", currentScene);
-			PlayerPrefs.SetInt ("xPos", ExtraMath.RoundToNearest(GameObject.Find("Player").transform.position.x, 10));
-			PlayerPrefs.SetInt ("zPos", ExtraMath.RoundToNearest(GameObject.Find("Player").transform.position.z, 10));
-			PlayerPrefs.SetInt ("yDir", ExtraMath.RoundToNearest(GameObject.Find("Player").transform.rotation.eulerAngles.y, 90));
-			InventorySystem.instance.Save ();
+			Save save = new Save ();
+
+			save.currentScene = currentScene;
+			save.initX = ExtraMath.RoundToNearest(GameObject.Find("Player").transform.position.x, 10);
+			save.initZ = ExtraMath.RoundToNearest(GameObject.Find("Player").transform.position.z, 10);
+			save.initY = ExtraMath.RoundToNearest(GameObject.Find("Player").transform.rotation.eulerAngles.y, 90);
+
+			InventorySystem.instance.Save (save);
+
+			//Write to file
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Create (Application.persistentDataPath + "/gamesave.save");
+			bf.Serialize (file, save);
+			file.Close ();
+
+			print ("saved to: " + (Application.persistentDataPath + "/gamesave.save"));
 		}
 	}
 }
