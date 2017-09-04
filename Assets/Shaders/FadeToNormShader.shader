@@ -3,6 +3,7 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+		timePassed ("Time Passed", Float) = 0
 	}
 	SubShader
 	{
@@ -14,7 +15,7 @@
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			
+
 			#include "UnityCG.cginc"
 
 			struct appdata
@@ -38,6 +39,7 @@
 			}
 			
 			sampler2D _MainTex;
+			float timePassed;
 
 			fixed4 frag (v2f i) : SV_Target
 			{
@@ -48,8 +50,7 @@
 				fixed4 gray = (avg, avg, avg);
 
 				// Fade over time
-				// FIGURE OUT TIME
-				col = lerp(gray, col, clamp(_SinTime[3], 0, 1));
+				col = lerp(gray, col, clamp(timePassed, 0, 1));
 
 				return col;
 			}
