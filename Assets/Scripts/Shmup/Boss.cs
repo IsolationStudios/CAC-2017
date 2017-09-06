@@ -66,18 +66,11 @@ public class Boss : MonoBehaviour {
 
 		timer.Reset ();
 
-		timer.SetTask (Talk, 0);
+		timer.SetTask (ShootSpider, 1000);
+		//timer.SetTask (Talk, 0);
 
 		for (int i = 0; i < 30; i++) {
-			timer.SetTask (MoveRight, 50);
-			timer.SetWait (10);
-			timer.SetTask (ShootCircle, 50);
-			timer.SetWait (10);
-			timer.SetTask (MoveLeft, 50);
-			timer.SetWait (10);
-			timer.SetTask (ShootCircle, 50);
-			timer.SetWait (500);
-			timer.SetTask (Talk, 1);
+			//timer.SetTask (Talk, 1);
 		}
 	}
 
@@ -157,6 +150,19 @@ public class Boss : MonoBehaviour {
 		else if(counter % shootInterval == 5){
 			for (int i = 0; i < 10; i++) {
 				Instantiate (enemybullet, new Vector3(-.9f + (2f/10*i), transform.position.y, transform.position.z), Quaternion.identity);
+			}
+		}
+		counter++;
+	}
+
+	void ShootSpider(){
+		if (counter % shootInterval == 0) {
+			for (int i = 0; i < 8; i++) {
+				Instantiate (enemybullet, transform.position, Quaternion.Euler (
+					0,
+					0, 
+					45*i + 30 * Mathf.Cos (0.05f * counter)
+				));
 			}
 		}
 		counter++;
