@@ -31,11 +31,11 @@ namespace Managers{
 			// win
 			if (boss.hp <= 0) {
 				print ("you win");
-				GameManager.instance.GoTo ("room01");
+				GameManager.instance.GoTo ("2Droom01");
 			}	
 			else if(player.hp <= 0){
 				print ("loser");
-				GameManager.instance.GoTo ("room01");
+				GameManager.instance.GoTo ("2Droom01");
 			}
 		}
 	}

@@ -8,6 +8,7 @@ using Managers;
  */
 
 namespace Player {
+	[System.Obsolete("Legacy from 3D")]
 	public class PlayerMoveControl : MonoBehaviour {
 		int counter;
 
