@@ -25,7 +25,7 @@ namespace Interactive{
 
 		//Temp mouse control
 		// Zoom in
-		void OnMouseDown(){
+		public virtual void OnMouseDown(){
 			if(GameState.state == GameState.State.OPEN){
 				savedCamPos = Camera.main.transform.position;
 
