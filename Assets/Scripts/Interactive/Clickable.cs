@@ -78,6 +78,14 @@ namespace Interactive{
 			// Stops lerp
 			if (ExtraMath.CheckCloseEnough (Camera.main.transform.position, target, threshold)) {
 				CancelInvoke ();
+				InvokeRepeating("ZoomIn", 0, 0.01f);
+			}
+		}
+
+		protected void ZoomIn(){
+			Camera.main.orthographicSize -= 0.05f;
+			if(Camera.main.orthographicSize <= 3){
+				CancelInvoke ();
 
 				GameState.state = GameState.State.ZOOM_DONE;
 				GameState.lookingAt = id;
@@ -86,20 +94,16 @@ namespace Interactive{
 
 		protected void MoveCamOut(){
 			Camera.main.transform.position = Vector3.Lerp (	Camera.main.transform.position,
-															savedCamPos,
-															Time.deltaTime * speed);
+				savedCamPos,
+				Time.deltaTime * speed);
+
+			if (Camera.main.orthographicSize < 5) {
+				Camera.main.orthographicSize += 0.05f;
+			}
 
 			// Stops lerp
 			if (ExtraMath.CheckCloseEnough (Camera.main.transform.position, savedCamPos, threshold)) {
 				CancelInvoke ();
-
-				//Round position
-				//Adding 0.1 cause weird math...
-				Camera.main.transform.position = new Vector3(
-					ExtraMath.RoundToNearest(Camera.main.transform.position.x, 10) + 0.01f,
-					Camera.main.transform.position.y,
-					ExtraMath.RoundToNearest(Camera.main.transform.position.z, 10) + 0.01f
-				);
 
 				GameState.state = GameState.State.OPEN;
 				GameState.lookingAt = -1;

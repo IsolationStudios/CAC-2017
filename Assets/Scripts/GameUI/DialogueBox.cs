@@ -16,7 +16,7 @@ namespace GameUI{
 		private int NORM_SPEED;
 		private int SLOW_SPEED;
 
-		private int startIndex = 3;
+		private int startIndex = 6;
 		private string currD;
 		protected int dArrIndex = 0;
 		private int dLetIndex;
@@ -25,6 +25,7 @@ namespace GameUI{
 		private Text dText;
 
 		private CharPortrait charPort;
+		private ImgScreen imgScreen;
 
 		public AudioClip dLetSound;
 		public AudioClip dLineSound;
@@ -39,8 +40,8 @@ namespace GameUI{
 			dText.text = "";
 
 			if (Application.isEditor) {
-				NORM_SPEED = 5;
-				SLOW_SPEED = 40;
+				NORM_SPEED = 2;
+				SLOW_SPEED = 20;
 			}
 			else {
 				NORM_SPEED = 2;
@@ -49,6 +50,7 @@ namespace GameUI{
 			speed = NORM_SPEED;
 
 			charPort = GameObject.Find ("CharPortrait").GetComponent<CharPortrait>();
+			imgScreen = GameObject.Find ("ImgScreen").GetComponent<ImgScreen>();
 		}
 
 		void Update() {
@@ -68,6 +70,7 @@ namespace GameUI{
 				currD = dArr [dArrIndex];
 
 				charPort.SetPortrait (int.Parse(dArr [dArrIndex].Substring(0, 2)));
+				imgScreen.SetScreen (int.Parse (dArr [dArrIndex].Substring (3, 2)));
 			}
 
 			// Move dialogue
