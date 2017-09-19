@@ -10,9 +10,6 @@ Open in Unity project wizard
 
 # Controls
 
-  - W/S to move forward/back
-  - A/D to turning
-  -SHIFT-A/D to strafe
   - click to examine
   - b to exit
   - DEBUG: num row

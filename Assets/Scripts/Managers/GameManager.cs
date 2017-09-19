@@ -39,12 +39,19 @@ namespace Managers {
 			// Carry over from scenes
 			DontDestroyOnLoad (GameObject.Find("CarryOver"));
 
+			fadeScreen = GameObject.Find ("FadeScreen").GetComponent<Image>();
+			selectDisp = GameObject.Find ("SelectDisp").GetComponent<SelectDisp>();
+		}
+
+		public void LoadFromMem(){
 			// Load from mem for now
 			Load ();
 			GoTo (currentScene);
-
-			fadeScreen = GameObject.Find ("FadeScreen").GetComponent<Image>();
-			selectDisp = GameObject.Find ("SelectDisp").GetComponent<SelectDisp>();
+			Destroy (GameObject.Find("Title"));
+		}
+		public void LoadNewGame(){
+			GoTo ("2Droom01");
+			Destroy (GameObject.Find("Title"));
 		}
 
 		void Update () {

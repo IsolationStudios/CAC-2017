@@ -66,11 +66,15 @@ public class Boss : MonoBehaviour {
 
 		timer.Reset ();
 
-		timer.SetTask (ShootSpider, 1000);
 		//timer.SetTask (Talk, 0);
 
 		for (int i = 0; i < 30; i++) {
 			//timer.SetTask (Talk, 1);
+			timer.SetTask (MoveLeft, 30);
+			timer.SetTask (ShootCircle, 50);
+			timer.SetTask (MoveCenter, 30);
+			timer.SetTask (MoveRight, 30);
+			timer.SetTask (ShootCircle, 50);
 		}
 	}
 
