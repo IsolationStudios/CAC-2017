@@ -9,7 +9,7 @@ using UnityEngine;
 [System.Serializable]
 public class Save {
 	// Game data
-	public string currentScene = "room01";
+	public string currentScene = "2Droom01";
 	public int initX;
 	public int initZ;
 	public int initY;

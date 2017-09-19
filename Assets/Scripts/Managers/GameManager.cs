@@ -27,6 +27,7 @@ namespace Managers {
 		public ArrayList floorLocs = new ArrayList();
 
 		private Image fadeScreen;
+		private SelectDisp selectDisp;
 
 		void Awake () {
 			if (instance == null)
@@ -38,11 +39,19 @@ namespace Managers {
 			// Carry over from scenes
 			DontDestroyOnLoad (GameObject.Find("CarryOver"));
 
+			fadeScreen = GameObject.Find ("FadeScreen").GetComponent<Image>();
+			selectDisp = GameObject.Find ("SelectDisp").GetComponent<SelectDisp>();
+		}
+
+		public void LoadFromMem(){
 			// Load from mem for now
 			Load ();
 			GoTo (currentScene);
-
-			fadeScreen = GameObject.Find ("FadeScreen").GetComponent<Image>();
+			Destroy (GameObject.Find("Title"));
+		}
+		public void LoadNewGame(){
+			GoTo ("2Droom01");
+			Destroy (GameObject.Find("Title"));
 		}
 
 		void Update () {
@@ -80,6 +89,7 @@ namespace Managers {
 		}
 
 		public void GoTo(string scene){
+
 			floorLocs.Clear ();
 			SceneManager.LoadScene (scene);
 
@@ -106,6 +116,9 @@ namespace Managers {
 			fadeScreen.color = Color.black;
 			fadeScreen.canvasRenderer.SetAlpha (1.0f);
 			fadeScreen.CrossFadeAlpha(0.0f, 0.5f, false);
+		}
+		public void HideDisp(){
+			selectDisp.HideSelectDisp ();
 		}
 
 		// ------

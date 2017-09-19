@@ -8,6 +8,7 @@ using Managers;
  */
 
 namespace Interactive{
+	[System.Obsolete("Legacy from 3D")]
 	public class Floor : MonoBehaviour {
 		void Awake(){
 			GameManager.instance.floorLocs.Add (transform.position);

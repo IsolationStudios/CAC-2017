@@ -18,7 +18,7 @@ public class Editor : MonoBehaviour {
 		}
 			
 		EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo ();
-		EditorSceneManager.OpenScene ("Assets/Scenes/init.unity");
+		EditorSceneManager.OpenScene ("Assets/Scenes/title.unity");
 		EditorApplication.isPlaying = true;
 	}
 }
