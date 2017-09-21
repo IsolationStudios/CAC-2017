@@ -29,6 +29,8 @@ namespace Managers {
 		private Image fadeScreen;
 		private SelectDisp selectDisp;
 
+		public GameObject pauseMenu;
+
 		void Awake () {
 			if (instance == null)
 				instance = this;
@@ -55,6 +57,11 @@ namespace Managers {
 		}
 
 		void Update () {
+
+			if(InputManager.instance.PAUSE && GameState.state == GameState.State.OPEN){
+				GameState.state = GameState.State.MENU;
+				Instantiate (pauseMenu, Vector3.zero, pauseMenu.transform.rotation, GameObject.Find("Canvas").transform);
+			}
 
 			// TEMP: debug
 			s = GameState.state;

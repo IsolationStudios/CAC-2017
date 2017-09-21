@@ -25,6 +25,8 @@ namespace Managers {
 		public bool TURN_LEFT_CONT;
 		public bool TURN_RIGHT_CONT;
 
+		public bool PAUSE;
+
 		void Awake () {
 			if (instance == null)
 				instance = this;
@@ -72,6 +74,12 @@ namespace Managers {
 			}
 			else {
 				TURN_RIGHT = false;
+			}
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				PAUSE = true;
+			}
+			else {
+				PAUSE = false;
 			}
 
 			if (Input.GetKey ("a") && Input.GetKey (KeyCode.LeftShift)) {

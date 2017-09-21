@@ -14,7 +14,8 @@ public static class GameState {
 		TALKING,
 		DONE_TALKING,
 		MOVING,
-		PUZZLE
+		PUZZLE,
+		MENU
 	}
 	public static State state = State.OPEN;
 	public static int lookingAt = -1;

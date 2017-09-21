@@ -10,12 +10,20 @@ using Managers;
 
 public class TitleControl : MonoBehaviour {
 
+	void Start(){
+		GameState.state = GameState.State.MENU;
+	}
+
 	public void NewGame(){
 		GameManager.instance.LoadNewGame ();
+		GameManager.instance.FadeFromBlack ();
+		GameState.state = GameState.State.OPEN;
 	}
 
 	public void ContGame(){
 		GameManager.instance.LoadFromMem ();
+		GameManager.instance.FadeFromBlack ();
+		GameState.state = GameState.State.OPEN;
 	}
 
 	public void Credits(){
