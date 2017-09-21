@@ -29,16 +29,16 @@ namespace Sweeper{
 				GameState.state = GameState.State.PUZZLE;
 
 				//Check done
-				bool allDug = true;
+				int allDug = 0;
 				for(int i=0; i < 5; i++){
 					for(int j=0; j < 5; j++){
-						allDug &= sweepTileArray [i, j].gameObject.GetComponent<SweepTile> ().IsDug;
+						allDug += sweepTileArray [i, j].gameObject.GetComponent<SweepTile> ().IsDug;
 					}
 				}
 
 				// Win
 				// TEMP: GO BACK TO ROOM 1
-				if (allDug) {
+				if (allDug >= 10) {
 					GameState.state = GameState.State.OPEN;
 					GameManager.instance.GoTo ("2Droom01");
 				}

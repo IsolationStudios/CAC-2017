@@ -9,8 +9,8 @@ using GameUI;
 
 namespace Sweeper{
 	public class SweepTile : MonoBehaviour {
-		bool isDug;
-		public bool IsDug{
+		int isDug = 0;
+		public int IsDug{
 			get{
 				return isDug;
 			}
@@ -29,8 +29,8 @@ namespace Sweeper{
 		}
 
 		void OnMouseDown(){
-			if (!isDug && GameState.state == GameState.State.PUZZLE) {
-				isDug = true;
+			if (isDug == 0 && GameState.state == GameState.State.PUZZLE) {
+				isDug = 1;
 				sr.sprite = dug;
 
 				var d = Instantiate (dBox);
