@@ -16,6 +16,12 @@ public class Save {
 
 	// Inventory data
 	public int hasCat;
+
+	public int trauma1Done;
+	public int trauma2Done;
+	public int trauma3Done;
+	public int trauma4Done;
+
 	public int room02Open;
 	//TODO: add invent vars
 }

@@ -23,6 +23,8 @@ namespace GameUI{
 		private int dCounter = 0;
 
 		private Text dText;
+		private GameObject arrow;
+		float arrowVal = 0.3f;
 
 		private CharPortrait charPort;
 		private ImgScreen imgScreen;
@@ -38,6 +40,9 @@ namespace GameUI{
 			dLetIndex = startIndex;
 			dText = (transform.Find ("Text")).transform.GetComponent<Text>();
 			dText.text = "";
+
+			arrow = transform.Find ("Arrow").gameObject;
+			arrow.SetActive (false);
 
 			if (Application.isEditor) {
 				NORM_SPEED = 2;
@@ -102,6 +107,18 @@ namespace GameUI{
 				if(dArrIndex < dArr.Length){
 					SoundManager.instance.PlaySFX(dLineSound);
 				}
+			}
+
+			//Display arrow
+			if (dLetIndex >= currD.Length) {
+				arrow.SetActive (true);
+				arrow.transform.GetComponent<RectTransform> ().anchoredPosition += new Vector2 (0, arrowVal);
+				if (dCounter % 20 == 0) {
+					arrowVal *= -1;
+				}
+			} else {
+				arrow.SetActive (false);
+				arrow.transform.GetComponent<RectTransform> ().anchoredPosition = new Vector2(arrow.transform.GetComponent<RectTransform> ().anchoredPosition.x, -20);
 			}
 
 			dCounter++;

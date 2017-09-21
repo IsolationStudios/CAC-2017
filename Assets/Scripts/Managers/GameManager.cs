@@ -127,9 +127,6 @@ namespace Managers {
 		public void HideDisp(){
 			selectDisp.HideSelectDisp ();
 		}
-		public void FadeColor(){
-			GameObject.Find ("Player").GetComponent<PostEffectScript> ().FadeBack ();
-		}
 
 		// ------
 		// Saving

@@ -14,7 +14,7 @@ namespace Player {
 
 			// Win
 			// TEMP: GO BACK TO ROOM 1
-			if (transform.position.y < -0.5) {
+			if (transform.position.y <= -1.7) {
 				GameState.state = GameState.State.OPEN;
 				GameManager.instance.GoTo ("2Droom01");
 			}
