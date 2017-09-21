@@ -47,9 +47,10 @@ namespace Managers {
 
 		public void LoadFromMem(){
 			// Load from mem for now
-			Load ();
-			GoTo (currentScene);
-			Destroy (GameObject.Find("Title"));
+			if (Load ()) {
+				GoTo (currentScene);
+				Destroy (GameObject.Find("Title"));
+			}
 		}
 		public void LoadNewGame(){
 			GoTo ("2Droom01");
@@ -57,7 +58,6 @@ namespace Managers {
 		}
 
 		void Update () {
-
 			if(InputManager.instance.PAUSE && GameState.state == GameState.State.OPEN){
 				GameState.state = GameState.State.MENU;
 				Instantiate (pauseMenu, Vector3.zero, pauseMenu.transform.rotation, GameObject.Find("Canvas").transform);
@@ -127,6 +127,9 @@ namespace Managers {
 		public void HideDisp(){
 			selectDisp.HideSelectDisp ();
 		}
+		public void FadeColor(){
+			GameObject.Find ("Player").GetComponent<PostEffectScript> ().FadeBack ();
+		}
 
 		// ------
 		// Saving
@@ -143,7 +146,7 @@ namespace Managers {
 			print ("reset: " + (Application.persistentDataPath + "/gamesave.save"));
 		}
 
-		public void Load(){
+		public bool Load(){
 			if (File.Exists (Application.persistentDataPath + "/gamesave.save")) {
 				//Deserialize
 				BinaryFormatter bf = new BinaryFormatter ();
@@ -157,7 +160,11 @@ namespace Managers {
 				initZ = save.initZ;
 				initY = save.initY;
 				InventorySystem.instance.Load (save);
+
+				return true;
 			}
+
+			return false;
 		}
 
 		public void Save(){
