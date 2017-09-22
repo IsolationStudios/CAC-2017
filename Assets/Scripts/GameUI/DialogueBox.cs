@@ -16,7 +16,7 @@ namespace GameUI{
 		private int NORM_SPEED;
 		private int SLOW_SPEED;
 
-		private int startIndex = 6;
+		private int startIndex = 12;
 		private string currD;
 		protected int dArrIndex = 0;
 		private int dLetIndex;
@@ -28,6 +28,8 @@ namespace GameUI{
 
 		private CharPortrait charPort;
 		private ImgScreen imgScreen;
+		private int sfxIndex;
+		private int musicIndex;
 
 		public AudioClip dLetSound;
 		public AudioClip dLineSound;
@@ -76,6 +78,10 @@ namespace GameUI{
 
 				charPort.SetPortrait (int.Parse(dArr [dArrIndex].Substring(0, 2)));
 				imgScreen.SetScreen (int.Parse (dArr [dArrIndex].Substring (3, 2)));
+				sfxIndex = int.Parse (dArr [dArrIndex].Substring (6, 2));
+				musicIndex = int.Parse (dArr [dArrIndex].Substring (9, 2));
+
+				SoundManager.instance.PlayMusic (musicIndex);
 			}
 
 			// Move dialogue
