@@ -47,8 +47,8 @@ namespace GameUI{
 			arrow.SetActive (false);
 
 			if (Application.isEditor) {
-				NORM_SPEED = 2;
-				SLOW_SPEED = 20;
+				NORM_SPEED = 4;
+				SLOW_SPEED = 30;
 			}
 			else {
 				NORM_SPEED = 2;

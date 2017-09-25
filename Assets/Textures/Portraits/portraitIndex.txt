@@ -1,0 +1,23 @@
+sample dialogue input
+  00:00:00:00:I literally just woke up.
+
+00 - 08 : IRIS
+  00-anger
+  01-netural talk
+  02-neutral
+  03-blank
+  04-sad
+  05-sad talk
+  06-shock
+  07-smile
+  08-unamused
+
+09 - 11 : MOM
+  09-nervous
+  10-neutral
+  11-neutral talk
+
+12 : SAVE POINT
+  12-save point
+
+13 - ?? : ERIS
