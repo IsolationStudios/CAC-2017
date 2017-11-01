@@ -81,6 +81,7 @@ namespace GameUI{
 				sfxIndex = int.Parse (dArr [dArrIndex].Substring (6, 2));
 				musicIndex = int.Parse (dArr [dArrIndex].Substring (9, 2));
 
+				SoundManager.instance.PlaySFXAlt(sfxIndex);
 				SoundManager.instance.PlayMusic (musicIndex);
 			}
 

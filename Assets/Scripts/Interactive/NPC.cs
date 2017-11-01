@@ -28,7 +28,7 @@ namespace Interactive{
 			}
 		}
 
-		void Talk(){
+		protected virtual void Talk(){
 			var d = Instantiate (dBox);
 			d.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 			d.GetComponent<DialogueBox> ().dArr = dialogueArray;

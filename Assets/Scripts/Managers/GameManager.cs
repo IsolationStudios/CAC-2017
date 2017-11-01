@@ -53,7 +53,7 @@ namespace Managers {
 			}
 		}
 		public void LoadNewGame(){
-			GoTo ("2Droom01");
+			GoTo ("introRoom");
 			Destroy (GameObject.Find("Title"));
 		}
 

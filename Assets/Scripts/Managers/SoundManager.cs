@@ -43,7 +43,10 @@ namespace Managers {
 		public void PlayMusic(int i){
 			AudioClip c = musicList [i];
 
-			if(c == null || c != null && c == musicPlayer.clip){
+			if (c == null) {
+				musicPlayer.Stop ();
+			}
+			else if(c != null && c == musicPlayer.clip){
 				return;
 			}
 				
