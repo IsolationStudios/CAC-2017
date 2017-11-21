@@ -142,11 +142,13 @@ namespace GameUI{
 			if (gotoScene != "") {
 				GameManager.instance.FadeFromBlack ();
 				GameManager.instance.GoTo (gotoScene);
+				GameState.state = GameState.State.OPEN;
+			} else {
+				GameState.state = GameState.State.DONE_TALKING;
 			}
 
-			SoundManager.instance.PlaySFX(exitSound);
 			charPort.HideDisp();
-			GameState.state = GameState.State.DONE_TALKING;
+			SoundManager.instance.PlaySFX(exitSound);
 			Destroy (gameObject);
 		}
 	}
