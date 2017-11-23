@@ -52,8 +52,6 @@ namespace Managers {
 				
 			musicPlayer.clip = c;
 			musicPlayer.Play ();
-
-			print ("new track");
 		}
 	}
 }

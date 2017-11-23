@@ -104,8 +104,9 @@ namespace GameUI{
 				if(dCounter > 10)
 					SoundManager.instance.PlaySFX(dLetSound);
 			}
+
 			//Move line
-			else if(Input.GetMouseButtonDown(0)) {
+			if(Input.GetMouseButtonDown(0)) {
 				dLetIndex = startIndex;
 				dCounter = 0;
 				dArrIndex++;
