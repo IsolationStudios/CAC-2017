@@ -20,4 +20,7 @@ sample dialogue input
 12 : SAVE POINT
   12-save point
 
-13 - ?? : ERIS
+13 : Trans
+  13-trans
+  
+14 - ?? : ERIS

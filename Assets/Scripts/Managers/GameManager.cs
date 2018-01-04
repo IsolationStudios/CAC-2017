@@ -102,6 +102,8 @@ namespace Managers {
 
 			previousScene = currentScene;
 			currentScene = scene;
+
+			GameObject.Find("ImgScreen").GetComponent<ImgScreen>().SetScreen(0);
 		}
 
 		// Checks if loc is a floor
