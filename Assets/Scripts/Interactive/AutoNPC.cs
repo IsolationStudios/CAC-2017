@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameUI;
+using Managers;
 
 /*
  * Clickable with dialogue that talks when loaded
@@ -11,6 +12,9 @@ using GameUI;
 
 namespace Interactive{
 	public class AutoNPC : NPC {
+
+		public string eventID;
+
 		void Start(){
 			GameState.state = GameState.State.TALKING;
 			Talk ();

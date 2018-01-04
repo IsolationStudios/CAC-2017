@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GameUI;
+using Managers;
 
 /*
  * Clickable with dialogue
@@ -12,9 +13,21 @@ using GameUI;
 namespace Interactive{
 	public class NPC : Clickable {
 		public string[] dialogueArray;
-		public string[] conds;
+		public string[] preConds;
+		public string[] postConds;
 		public string gotoScene;
 		public GameObject dBox;
+
+		protected override void Start(){
+			base.Start ();
+
+			// Check bools
+			foreach(string s in preConds){
+				if ((int)(InventorySystem.instance.GetType ().GetField (s).GetValue (InventorySystem.instance)) == 0) {
+					Destroy (gameObject);
+				}
+			}
+		}
 
 		protected override void Update(){
 			base.Update ();
@@ -32,7 +45,7 @@ namespace Interactive{
 			var d = Instantiate (dBox);
 			d.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 			d.GetComponent<DialogueBox> ().dArr = dialogueArray;
-			d.GetComponent<DialogueBox> ().conds = conds;
+			d.GetComponent<DialogueBox> ().conds = postConds;
 			d.GetComponent<DialogueBox> ().gotoScene = gotoScene;
 
 			//Check for choices

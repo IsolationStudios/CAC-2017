@@ -24,6 +24,8 @@ public class Save {
 	public int trauma4Done;
 
 	public int room02Open;
+	public int ranIntro;
 	public int talkedToMom;
+	public int portalDiscovered;
 	//TODO: add invent vars
 }
