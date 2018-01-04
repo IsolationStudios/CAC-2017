@@ -15,6 +15,7 @@ public class Save {
 	public int initY;
 
 	// Inventory data
+	// Don't forget to add data to InventorySystem
 	public int hasCat;
 
 	public int trauma1Done;
@@ -23,5 +24,6 @@ public class Save {
 	public int trauma4Done;
 
 	public int room02Open;
+	public int talkedToMom;
 	//TODO: add invent vars
 }

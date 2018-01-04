@@ -105,15 +105,23 @@ namespace GameUI{
 					SoundManager.instance.PlaySFX(dLetSound);
 			}
 
-			//Move line
+			// Detect input
 			if(Input.GetMouseButtonDown(0)) {
-				dLetIndex = startIndex;
-				dCounter = 0;
-				dArrIndex++;
-				speed = NORM_SPEED;
+				// Move line if text done
+				if (dLetIndex >= currD.Length) {
+					dLetIndex = startIndex;
+					dCounter = 0;
+					dArrIndex++;
+					speed = NORM_SPEED;
 
-				if(dArrIndex < dArr.Length){
-					SoundManager.instance.PlaySFX(dLineSound);
+					if (dArrIndex < dArr.Length) {
+						SoundManager.instance.PlaySFX (dLineSound);
+					}
+				}
+				// Complete line
+				else {
+					dLetIndex = currD.Length;
+					dText.text = currD.Substring (startIndex, currD.Length - startIndex);
 				}
 			}
 

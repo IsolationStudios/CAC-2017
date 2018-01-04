@@ -11,6 +11,7 @@ namespace Managers{
 		public static InventorySystem instance;
 
 		// Inventory data
+		// Don't forget to add bool to Save
 		public int hasCat;
 		public int room02Open;
 		public int trauma1Done;
@@ -18,6 +19,8 @@ namespace Managers{
 		public int trauma3Done;
 		public int trauma4Done;
 		//TODO: add invent vars
+
+		public int talkedToMom;
 
 		void Awake () {
 			if (instance == null)
@@ -34,6 +37,7 @@ namespace Managers{
 			trauma2Done = save.trauma2Done;
 			trauma3Done = save.trauma3Done;
 			trauma4Done = save.trauma4Done;
+			talkedToMom = save.talkedToMom;
 		}
 
 		public void Save(Save save){
@@ -44,6 +48,7 @@ namespace Managers{
 			save.trauma2Done = trauma2Done;
 			save.trauma3Done = trauma3Done;
 			save.trauma4Done = trauma4Done;
+			save.talkedToMom = talkedToMom;
 		}
 	}
 }
