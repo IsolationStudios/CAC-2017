@@ -1,0 +1,6 @@
+00 		: None
+01 		: Black
+02	 	: Trauma 1
+03 - 04	: Trauma 2
+05		: Trauma 3
+06 - 08	: Portal cutscene
